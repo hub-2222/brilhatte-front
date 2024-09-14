@@ -1,19 +1,20 @@
 import Input from "/app/components/input/Input";
+import Card from "@/app/components/card/Card";
 
 export default function Calculo() {
 
     return (
-        <div className="flex-auto flex-col space-y-4 justify-center items-center">
-            <div>
-                <h1>Calcular preço de custo</h1>
+        <div className="flex-auto flex-col space-y-2 justify-center items-center">
+            <div className="justify-center items-center">
+                <span className="text-2xl">Calcular preço de custo</span>
             </div>
-            <div>
-                //AQUI VAI O CARD
+            <div className="basis-1/2 w-3/4">
+                <Card></Card>
             </div>
-            <div className="basis-4/12 grow-1">
+            <div className="basis-4/12">
                 <Input label="Mão de obra" placeholder="0.00"></Input>
             </div>
-            <div className="basis-4/12 grow-1">
+            <div className="basis-4/12">
                 <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
                 <div className="flex flex-row grow-0 w-full">
                     <div className="w-1/6 pr-2">
