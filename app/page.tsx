@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from '@/app/home.module.css';
 import clsx from 'clsx';
-import Calculo from "@/app/components/calculo/Calculo";
+import Calculo from "@/app/pages/calculo/Calculo";
 import Navbar from "@/app/components/navbar/Navbar";
 
 export default function Home() {
