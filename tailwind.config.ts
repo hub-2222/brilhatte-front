@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+const colors = require('tailwindcss/colors')
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,7 +9,9 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      "primary": "#445869"
+      ...colors,
+      "primary": "#445869",
+      "pastelgreen": "#70A572"
     },
     extend: {
       backgroundImage: {
