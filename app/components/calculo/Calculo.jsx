@@ -1,3 +1,5 @@
+import Input from "@/app/components/input/Input";
+
 export default function Calculo() {
 
     return (
@@ -9,14 +11,23 @@ export default function Calculo() {
                 //AQUI VAI O CARD
             </div>
             <div className="basis-4/12 grow-1">
-                <div>
-                    <label htmlFor="price" className="block text-sm font-medium leading-6 text-sky-400">Mão de obra</label>
-                    <div className="relative mt-1 rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                            <span className="text-gray-500 sm:text-sm">$</span>
-                        </div>
-                        <input type="text" name="price" id="price" className="block text-right w-1/2 rounded-md border-0 py-1.5 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                               placeholder="0.00"/>
+                <Input label="Mão de obra" placeholder="0.00"></Input>
+            </div>
+            <div className="basis-1/2 grow-0">
+                <div className="w-1/2">
+                    <label htmlFor="website-admin"
+                           className="block mb-2 text-sm font-medium text-gray-900">Username</label>
+                    <div className="flex border rounded drop-shadow">
+                        <span className="inline-flex items-center px-3 text-sm rounded-s-md bg-gray-600 text-white">
+                            Calcular
+                        </span>
+                        <span className="inline-flex items-center px-2 text-sm bg-pastelgreen text-white">
+                            R$
+                        </span>
+                        <input type="text"
+                               id="website-admin"
+                               className="rounded-none rounded-e-lg text-gray-900 block min-w-0 w-full text-sm p-2.5"
+                               placeholder="elonmusk"/>
                     </div>
                 </div>
             </div>
