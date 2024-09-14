@@ -2,8 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #F2F2F2;
+  --text: black;
+  --btn: #445869;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 100%;
 }
