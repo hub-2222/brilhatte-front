@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Card = () => {
     return (
-        <div className="flex m-10 rounded-lg bg-white shadow-lg shrink-0 shadow-black-500/50 ">
+        <div className="flex rounded-lg bg-white shadow-lg shrink-0 shadow-black-500/50 ">
             <div className="flex flex-col">
                 <Image
                     src="/img/ARTE_-_ELEG0018.jpg"

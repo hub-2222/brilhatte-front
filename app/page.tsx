@@ -18,14 +18,33 @@ export default function Home() {
             <div className="flex flex-row space-x-16 justify-center items-start">
                 <div className="basis-1/2 h-screen overflow-y-scroll">
                     <Search placeholder="Digite o nome da peça que está buscando aqui."/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
+                    <div className="m-10">
+                        <Card/>
+                    </div>
                 </div>
                 <div className="basis-1/2">
                     <Calculo></Calculo>
