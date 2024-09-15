@@ -9,7 +9,7 @@ export default function Calculo() {
                 <span className="text-2xl">Calcular preço de custo</span>
             </div>
             <div className="w-full">
-                <Card></Card>
+                <Card unclickable={true}></Card>
             </div>
             <div className="w-full">
                 <Input label="Mão de obra" placeholder="0.00"></Input>
