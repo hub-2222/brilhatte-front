@@ -19,7 +19,7 @@ export default function Calculo() {
                 <span className="text-2xl">Calcular preço de custo</span>
             </div>
             <div className="w-full">
-                <Card></Card>
+                <Card unclickable={true}></Card>
             </div>
             <div className="flex flex-row w-full">
                 <div className="w-full pr-2">

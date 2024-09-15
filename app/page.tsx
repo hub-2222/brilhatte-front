@@ -12,11 +12,8 @@ export default function Home() {
 
   return (
         <main>
-            <div>
-                <Navbar></Navbar>
-            </div>
             <div className="flex flex-row space-x-16 justify-center items-start">
-                <div className="basis-1/2 h-screen overflow-y-scroll">
+                <div className="pb-16 basis-1/2 h-screen overflow-y-scroll">
                     <Search placeholder="Digite o nome da peça que está buscando aqui."/>
                     <div className="m-10">
                         <Card/>
