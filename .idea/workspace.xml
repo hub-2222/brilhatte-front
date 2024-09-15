@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="Inputs e botão">
+    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="Inputs">
+      <change afterPath="$PROJECT_DIR$/app/components/input/HotfixInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/card/Card.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/input/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/input/Input.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/calculo/Calculo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/calculo/Calculo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +92,7 @@
       <workItem from="1725231196071" duration="27000" />
       <workItem from="1725233841961" duration="2329000" />
       <workItem from="1726349320039" duration="8076000" />
+      <workItem from="1726432794712" duration="5171000" />
     </task>
     <task id="LOCAL-00001" summary="#Initial commit">
       <option name="closed" value="true" />
@@ -172,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726357024142</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Inputs">
+      <option name="closed" value="true" />
+      <created>1726359266484</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726359266484</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +207,7 @@
     <MESSAGE value="Separando lados" />
     <MESSAGE value="Cores" />
     <MESSAGE value="Inputs e botão" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inputs e botão" />
+    <MESSAGE value="Inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inputs" />
   </component>
 </project>
