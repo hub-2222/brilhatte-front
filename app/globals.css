@@ -17,6 +17,10 @@
 body {
   background-color: var(--bg);
   color: var(--text);
-  overflow-y: hidden;
-  display: block;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
