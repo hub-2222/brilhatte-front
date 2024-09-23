@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="Inputs">
-      <change afterPath="$PROJECT_DIR$/app/components/input/HotfixInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/card/Card.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/input/HotfixInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/input/HotfixInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/input/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/input/Input.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/calculo/Calculo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/calculo/Calculo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +30,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/pages/calculo/Calculo.jsx" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,7 +49,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;teste&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Bruni/WebstormProjects/brilhatte-front/app/components/calculo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -93,6 +94,7 @@
       <workItem from="1725233841961" duration="2329000" />
       <workItem from="1726349320039" duration="8076000" />
       <workItem from="1726432794712" duration="5171000" />
+      <workItem from="1727039637864" duration="10040000" />
     </task>
     <task id="LOCAL-00001" summary="#Initial commit">
       <option name="closed" value="true" />
@@ -209,5 +211,17 @@
     <MESSAGE value="Inputs e botão" />
     <MESSAGE value="Inputs" />
     <option name="LAST_COMMIT_MESSAGE" value="Inputs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="javascript">
+          <url>file://$PROJECT_DIR$/app/pages/calculo/Calculo.jsx</url>
+          <line>6</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
