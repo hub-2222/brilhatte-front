@@ -29,3 +29,8 @@ body {
 .fds {
   height: calc(100vh - 200px);
 }
+
+.active {
+  background-color: rgba(68, 88, 105, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px 0px inset;
+}
