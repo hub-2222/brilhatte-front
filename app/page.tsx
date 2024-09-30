@@ -7,8 +7,11 @@ import Navbar from "@/app/components/navbar/Navbar";
 import Card from "@/app/components/card/Card";
 import Input from "@/app/components/input/Input";
 import Search from "@/app/components/input/InputSearch";
+import {useState} from "react";
 
 export default function Home() {
+    const [roupaSelected, setRoupaSelected] = useState(null)
+
     const json2 = [
         {
             "id": 1,
@@ -90,7 +93,8 @@ export default function Home() {
         }
     ]
 
-  return (
+
+    return (
         <main>
             <div className="flex flex-row space-x-16 justify-center items-start">
                 <div className="pb-16 basis-1/2">
@@ -98,20 +102,16 @@ export default function Home() {
                     <div className="overflow-y-auto fds">
                         {
                             json2.map(roupa => (
-                                <div className="m-10">
-                                    <Card roupa={roupa}/>
+                                <div key={roupa.id} className="m-10">
+                                    <Card roupa={roupa} selectRoupa={setRoupaSelected}/>
                                 </div>
                             ))
                         }
-                        
+
                     </div>
                 </div>
                 <div className="basis-1/2">
-                    <Calculo></Calculo>
-                   <div className="h-screen fds flex flex-col justify-center items-center">
-                        <span className="text-2xl text-center font-bold	text-neutral-700">Calculadora Preço de Venda</span>
-                        <span className="text-center px-20 py-8">Para continuar, por favor, selecione uma das opções disponíveis no menu à esquerda. Clique no item desejado para prosseguir.</span>
-                   </div>
+                    <Calculo roupa={roupaSelected}></Calculo>
                 </div>
             </div>
         </main>

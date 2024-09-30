@@ -10,8 +10,8 @@ export default function Card (props) {
 
     function selected(id) {
         document.querySelectorAll('.card').forEach((item) => item.classList.remove('active'));
-        
         document.getElementById("card-" + id).classList.add('active');
+        props.selectRoupa(props.roupa)
     }
 
     return (
@@ -33,7 +33,7 @@ export default function Card (props) {
                 <ul className="list-disc pl-8">
                     {
                         props.roupa?.pedras_vinculadas.map(pedra => (
-                            <li>{pedra.nome} - {pedra.quantidade} unidades</li>
+                            <li key={pedra.id}>{pedra.nome} - {pedra.quantidade} unidades</li>
                         ))
                     }
                 </ul>
