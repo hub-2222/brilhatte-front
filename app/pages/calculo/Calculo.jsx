@@ -134,7 +134,7 @@ export default function Calculo() {
 
 
     return (
-        <div className="flex flex-col justify-between items-center h-screen overflow-y-scroll space-y-2 mx-32">
+        <div className="flex flex-col justify-between items-center h-screen fds overflow-y-auto space-y-2 mx-32">
             <div>
                 <span className="text-2xl">Calcular preço de custo</span>
             </div>

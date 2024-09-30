@@ -108,6 +108,10 @@ export default function Home() {
                 </div>
                 <div className="basis-1/2">
                     <Calculo></Calculo>
+                   <div className="h-screen fds flex flex-col justify-center items-center">
+                        <span className="text-2xl text-center font-bold	text-neutral-700">Calculadora Preço de Venda</span>
+                        <span className="text-center px-20 py-8">Para continuar, por favor, selecione uma das opções disponíveis no menu à esquerda. Clique no item desejado para prosseguir.</span>
+                   </div>
                 </div>
             </div>
         </main>
