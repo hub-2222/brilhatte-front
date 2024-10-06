@@ -3,63 +3,64 @@ import Input from "/app/components/input/Input";
 import Card from "@/app/components/card/Card";
 import HotfixInput from "@/app/components/input/HotfixInput";
 import {useState} from "react";
+import {api} from "@/app/api/api";
 
 export default function Calculo(props) {
 
-    const json2 = [
-        {
-            "id": 1,
-            "nome": "Vestido",
-            "comprimentoFrente": 0.0,
-            "comprimentoCostas": 0.0,
-            "larguraFrente": 0.0,
-            "larguraCostas": 0.0,
-            "pedras_vinculadas": [
-                {
-                    "id": 1,
-                    "nome": "sextavado gold 3mm",
-                    "tamanho": "3mm",
-                    "valor_unitario": 0.5,
-                    "quantidade": 500,
-                    "idRegra": 1
-                },
-                {
-                    "id": 2,
-                    "nome": "sextavado black 3mm",
-                    "tamanho": "3mm",
-                    "valor_unitario": 0.5,
-                    "quantidade": 500,
-                    "idRegra": 2
-                }
-            ]
-        }
-    ]
-
-    const json3 = {
-        idRoupa: 1,
-        pedras: [
-            {
-                id: 1
-            },
-            {
-                id:2
-            }
-        ],
-        hotfixes: [
-            {
-                "tamanho": "VINTE_QUATRO",
-                "largura": 24,
-                "comprimento": 32
-            },
-            {
-                "tamanho": "TRINTA_DOIS",
-                "largura": 28,
-                "comprimento": 80
-            }
-        ],
-        porcentagem_lucro: 0.5,
-        mao_obra: 50
-    }
+    // const json2 = [
+    //     {
+    //         "id": 1,
+    //         "nome": "Vestido",
+    //         "comprimentoFrente": 0.0,
+    //         "comprimentoCostas": 0.0,
+    //         "larguraFrente": 0.0,
+    //         "larguraCostas": 0.0,
+    //         "pedras_vinculadas": [
+    //             {
+    //                 "id": 1,
+    //                 "nome": "sextavado gold 3mm",
+    //                 "tamanho": "3mm",
+    //                 "valor_unitario": 0.5,
+    //                 "quantidade": 500,
+    //                 "idRegra": 1
+    //             },
+    //             {
+    //                 "id": 2,
+    //                 "nome": "sextavado black 3mm",
+    //                 "tamanho": "3mm",
+    //                 "valor_unitario": 0.5,
+    //                 "quantidade": 500,
+    //                 "idRegra": 2
+    //             }
+    //         ]
+    //     }
+    // ]
+    //
+    // const json3 = {
+    //     idRoupa: 1,
+    //     pedras: [
+    //         {
+    //             id: 1
+    //         },
+    //         {
+    //             id:2
+    //         }
+    //     ],
+    //     hotfixes: [
+    //         {
+    //             "tamanho": "VINTE_QUATRO",
+    //             "largura": 24,
+    //             "comprimento": 32
+    //         },
+    //         {
+    //             "tamanho": "TRINTA_DOIS",
+    //             "largura": 28,
+    //             "comprimento": 80
+    //         }
+    //     ],
+    //     porcentagem_lucro: 0.5,
+    //     mao_obra: 50
+    // }
 
     const [nextId32, setNextId32] = useState(0)
     const [nextId24, setNextId24] = useState(0)
@@ -72,6 +73,7 @@ export default function Calculo(props) {
             id: 0,
             largura: 0,
             comprimento: 0,
+            tamanho: "VINTE_QUATRO",
             deletable: false
         }
     ])
@@ -81,11 +83,45 @@ export default function Calculo(props) {
             id: 0,
             largura: 0,
             comprimento: 0,
+            tamanho: "TRINTA_DOIS",
             deletable: false
         }
     ])
-    function calcular() {
-        console.log(this.state)
+    async function calcular() {
+        let calculoDTO = {
+            roupa: props.roupa,
+            listHotfix: montarArrayHotfix(),
+            maoObra: maoObra,
+            porcentagemLucro: porcentagemLucro
+        }
+
+        await api
+            .post(`/calculo`, calculoDTO)
+            .then((res) => {
+                setPrecoCusto(res.data)
+            });
+    }
+
+    function montarArrayHotfix() {
+        let arrayHotfix = []
+
+        hotfixes24.map((hotfix) => {
+            arrayHotfix.push({
+                tamanho: "VINTE_QUATRO",
+                larguraUtilizada: hotfix.largura,
+                comprimentoUtilizado: hotfix.comprimento
+            });
+        });
+
+        hotfixes32.map((hotfix) => {
+            arrayHotfix.push({
+                tamanho: "TRINTA_DOIS",
+                larguraUtilizada: hotfix.largura,
+                comprimentoUtilizado: hotfix.comprimento
+            });
+        });
+
+        return arrayHotfix;
     }
 
     function add32() {
@@ -96,6 +132,7 @@ export default function Calculo(props) {
                 id: prox,
                 largura: 0,
                 comprimento: 0,
+                tamanho: "TRINTA_DOIS",
                 deletable: true
             }
         ]);
@@ -108,8 +145,12 @@ export default function Calculo(props) {
         setHotfix32(newList)
     }
 
-    function handleChangeHotfix32(id, valor) {
+    function handleChangeComprimento(item, valor) {
+        item.comprimento = valor
+    }
 
+    function handleChangeLargura(item, valor) {
+        item.largura = valor
     }
 
     function add24() {
@@ -120,6 +161,7 @@ export default function Calculo(props) {
                 id: prox,
                 largura: 0,
                 comprimento: 0,
+                tamanho: "VINTE_QUATRO",
                 deletable: true
             }
         ]);
@@ -132,7 +174,6 @@ export default function Calculo(props) {
         setHotfix24(newList)
     }
 
-
     return (
         props.roupa != null
             ?
@@ -141,15 +182,15 @@ export default function Calculo(props) {
                     <span className="text-2xl">Calcular preço de custo</span>
                 </div>
                 <div className="w-full">
-                    <Card unclickable={true}></Card>
+                    <Card roupa={props.roupa} unclickable={true}></Card>
                 </div>
                 <div className="flex flex-row w-full">
                     <div className="w-full pr-2">
-                        <Input onChange={(maoObra) => setMaoObra(maoObra)} teste={maoObra} label="Mão de obra"
+                        <Input type="number" onChange={(maoObra) => setMaoObra(maoObra)} teste={maoObra} label="Mão de obra"
                                placeholder="0.00"></Input>
                     </div>
                     <div className="w-full">
-                        <Input onChange={(porcentagemLucro) => setPorcentagemLucro(porcentagemLucro)}
+                        <Input type="number" onChange={(porcentagemLucro) => setPorcentagemLucro(porcentagemLucro)}
                                teste={porcentagemLucro} label="Porcentagem de lucro" placeholder="0%"></Input>
                     </div>
                 </div>
@@ -161,7 +202,9 @@ export default function Calculo(props) {
                                 <div key={item.id}>
                                     <HotfixInput
                                         id={item.id}
-                                        onChange={handleChangeHotfix32}
+                                        hotfix={item}
+                                        onChangeComprimento={handleChangeComprimento}
+                                        onChangeLargura={handleChangeLargura}
                                         deletable={item.deletable}
                                         onClickAdd={add32}
                                         onClickDelete={remove32}/>
@@ -175,6 +218,9 @@ export default function Calculo(props) {
                                 <div key={item.id}>
                                     <HotfixInput
                                         id={item.id}
+                                        hotfix={item}
+                                        onChangeComprimento={handleChangeComprimento}
+                                        onChangeLargura={handleChangeLargura}
                                         deletable={item.deletable}
                                         onClickAdd={add24}
                                         onClickDelete={remove24}/>
@@ -196,7 +242,6 @@ export default function Calculo(props) {
                             <input type="button"
                                    id="website-admin"
                                    disabled
-                                   onChange={(precoCusto) => setPrecoCusto(precoCusto)}
                                    teste={precoCusto}
                                    className="rounded-e-lg disabled:bg-white text-right text-gray-900 block min-w-0 w-full focus:outline-none focus:ring-1 text-sm p-2.5"
                                    placeholder="0"/>

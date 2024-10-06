@@ -9,9 +9,11 @@ export default function Card (props) {
     const [unclickable, setUnclickable] = useState(!!props.unclickable);
 
     function selected(id) {
-        document.querySelectorAll('.card').forEach((item) => item.classList.remove('active'));
-        document.getElementById("card-" + id).classList.add('active');
-        props.selectRoupa(props.roupa)
+        if(!unclickable) {
+            document.querySelectorAll('.card').forEach((item) => item.classList.remove('active'));
+            document.getElementById("card-" + id).classList.add('active');
+            props.selectRoupa(props.roupa)
+        }
     }
 
     return (
@@ -32,7 +34,7 @@ export default function Card (props) {
                 <p>Pedras:</p>
                 <ul className="list-disc pl-8">
                     {
-                        props.roupa?.pedras_vinculadas.map(pedra => (
+                        props.roupa?.pedrasVinculadas?.map(pedra => (
                             <li key={pedra.id}>{pedra.nome} - {pedra.quantidade} unidades</li>
                         ))
                     }

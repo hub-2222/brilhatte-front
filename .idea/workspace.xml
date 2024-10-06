@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="Inputs">
+    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="Deixando tela variavel de acordo com objetos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/card/Card.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/input/HotfixInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/input/HotfixInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/input/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/input/Input.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/calculo/Calculo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/calculo/Calculo.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,6 +98,10 @@
       <workItem from="1726349320039" duration="8076000" />
       <workItem from="1726432794712" duration="5171000" />
       <workItem from="1727039637864" duration="10040000" />
+      <workItem from="1727051274337" duration="218000" />
+      <workItem from="1727648021495" duration="6340000" />
+      <workItem from="1727913725357" duration="2343000" />
+      <workItem from="1728252016853" duration="4744000" />
     </task>
     <task id="LOCAL-00001" summary="#Initial commit">
       <option name="closed" value="true" />
@@ -184,7 +191,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726359266484</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Deixando tela variavel de acordo com objetos">
+      <option name="closed" value="true" />
+      <created>1727051309763</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727051309763</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Deixando tela variavel de acordo com objetos">
+      <option name="closed" value="true" />
+      <created>1727659803170</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727659803170</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,15 +233,15 @@
     <MESSAGE value="Cores" />
     <MESSAGE value="Inputs e botão" />
     <MESSAGE value="Inputs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inputs" />
+    <MESSAGE value="Deixando tela variavel de acordo com objetos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deixando tela variavel de acordo com objetos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="javascript">
           <url>file://$PROJECT_DIR$/app/pages/calculo/Calculo.jsx</url>
-          <line>6</line>
-          <properties lambdaOrdinal="-1" />
+          <line>7</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

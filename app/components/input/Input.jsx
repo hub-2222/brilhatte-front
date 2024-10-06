@@ -11,7 +11,7 @@ export default function Input(props) {
     return (
         <div className="drop-shadow">
             <label htmlFor="default-input" className="block mb-2 text-sm font-medium text-gray-700">{props.label}</label>
-            <input type="text"
+            <input type={props.type || "text"}
                    onChange={handleChange}
                    value={valor}
                    id="default-input"
