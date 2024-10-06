@@ -136,8 +136,7 @@ export default function Calculo(props) {
     return (
         props.roupa != null
             ?
-            <div
-                className="flex flex-col justify-between items-center h-screen fds overflow-y-auto space-y-2 mx-32">
+            <div className="flex flex-col justify-between items-center h-screen fds space-y-2 mx-32">
                 <div>
                     <span className="text-2xl">Calcular preço de custo</span>
                 </div>
@@ -154,41 +153,38 @@ export default function Calculo(props) {
                                teste={porcentagemLucro} label="Porcentagem de lucro" placeholder="0%"></Input>
                     </div>
                 </div>
-                <div className="w-full">
-                    <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
-                    {
-                        hotfixes32.sort((a, b) => a.id - b.id).map(item => (
-                            <div key={item.id}>
-                                <HotfixInput
-                                    id={item.id}
-                                    onChange={handleChangeHotfix32}
-                                    deletable={item.deletable}
-                                    onClickAdd={add32}
-                                    onClickDelete={remove32}/>
-                            </div>
-                        ))
-                    }
-                </div>
-                <div className="w-full">
-                    <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 24cm</label>
-                    {hotfixes24.sort((a, b) => a.id - b.id).map(item => (
-                            <div key={item.id}>
-                                <HotfixInput
-                                    id={item.id}
-                                    deletable={item.deletable}
-                                    onClickAdd={add24}
-                                    onClickDelete={remove24}/>
-                            </div>
-                        )
-                    )}
-                </div>
-                <div className="basis-4/12 grow-1">
-
+                <div className="w-full h-4/5 overflow-y-auto p-3">
+                    <div className="">
+                        <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
+                        {
+                            hotfixes32.sort((a, b) => a.id - b.id).map(item => (
+                                <div key={item.id}>
+                                    <HotfixInput
+                                        id={item.id}
+                                        onChange={handleChangeHotfix32}
+                                        deletable={item.deletable}
+                                        onClickAdd={add32}
+                                        onClickDelete={remove32}/>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <div className="">
+                        <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 24cm</label>
+                        {hotfixes24.sort((a, b) => a.id - b.id).map(item => (
+                                <div key={item.id}>
+                                    <HotfixInput
+                                        id={item.id}
+                                        deletable={item.deletable}
+                                        onClickAdd={add24}
+                                        onClickDelete={remove24}/>
+                                </div>
+                            )
+                        )}
+                    </div>
                 </div>
                 <div className="w-full">
                     <div>
-                        <label htmlFor="website-admin"
-                               className="block mb-2 text-sm font-medium text-gray-700">Username</label>
                         <div className="flex border rounded-lg drop-shadow">
                             <button onClick={calcular}
                                     className="inline-flex hover:bg-gray-600 active:bg-gray-700 items-center px-3 text-sm rounded-s-lg bg-gray-500 text-white">

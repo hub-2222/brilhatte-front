@@ -16,7 +16,7 @@ export default function Input(props) {
                    value={valor}
                    id="default-input"
                    placeholder={props.placeholder}
-                   className="placeholder:text-gray-400 w-full placeholder:text-right border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 focus:outline-none focus:ring-1"/>
+                   className="placeholder:text-gray-400 w-full text-right border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 focus:outline-none focus:ring-1"/>
         </div>
     )
 }
