@@ -138,7 +138,7 @@ export default function Home() {
                     <div className="overflow-y-auto fds shadow-inner">
                         {
                             characterList?.map(roupa => (
-                                <div key={roupa.id} className="m-10">
+                                <div key={roupa?.id} className="m-10">
                                     <Card roupa={roupa} selectRoupa={setRoupaSelected}/>
                                 </div>
                             ))

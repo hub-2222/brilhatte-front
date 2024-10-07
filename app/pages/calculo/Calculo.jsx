@@ -71,7 +71,7 @@ export default function Calculo(props) {
     const [hotfixes24, setHotfix24] = useState([
         {
             id: 0,
-            largura: 0,
+            largura: 24,
             comprimento: 0,
             tamanho: "VINTE_QUATRO",
             deletable: false
@@ -81,7 +81,7 @@ export default function Calculo(props) {
     const [hotfixes32, setHotfix32] = useState([
         {
             id: 0,
-            largura: 0,
+            largura: 32,
             comprimento: 0,
             tamanho: "TRINTA_DOIS",
             deletable: false
@@ -130,7 +130,7 @@ export default function Calculo(props) {
             ...hotfixes32,
             {
                 id: prox,
-                largura: 0,
+                largura: 32,
                 comprimento: 0,
                 tamanho: "TRINTA_DOIS",
                 deletable: true
@@ -150,6 +150,7 @@ export default function Calculo(props) {
     }
 
     function handleChangeLargura(item, valor) {
+        console.log(valor)
         item.largura = valor
     }
 
@@ -159,7 +160,7 @@ export default function Calculo(props) {
             ...hotfixes24,
             {
                 id: prox,
-                largura: 0,
+                largura: 24,
                 comprimento: 0,
                 tamanho: "VINTE_QUATRO",
                 deletable: true
@@ -194,7 +195,7 @@ export default function Calculo(props) {
                                teste={porcentagemLucro} label="Porcentagem de lucro" placeholder="0%"></Input>
                     </div>
                 </div>
-                <div className="w-full h-4/5 overflow-y-auto p-3">
+                <div className="w-full h-4/5 overflow-y-auto pr-3 shadow-inner">
                     <div className="">
                         <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
                         {
@@ -242,7 +243,7 @@ export default function Calculo(props) {
                             <input type="button"
                                    id="website-admin"
                                    disabled
-                                   teste={precoCusto}
+                                   value={precoCusto}
                                    className="rounded-e-lg disabled:bg-white text-right text-gray-900 block min-w-0 w-full focus:outline-none focus:ring-1 text-sm p-2.5"
                                    placeholder="0"/>
                         </div>
