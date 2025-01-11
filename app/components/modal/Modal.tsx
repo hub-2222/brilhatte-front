@@ -7,12 +7,14 @@ export const Modal = (
         isOpen, 
         onClose, 
         children,
-        title
+        title,
+        widht
     }:{
         isOpen: boolean,
         onClose: () => void,
         children: React.ReactNode,
         title: string
+        widht: string
     }
 ) => {
     useEffect(()=> {
@@ -21,7 +23,6 @@ export const Modal = (
                 onClose();
             }
         }
-
         window.addEventListener("keydown", handleKeyDown)
     }, [onClose])
     
@@ -30,12 +31,11 @@ export const Modal = (
     return( 
         <>
             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center *:transition-opacity duration-300">
-            {/* {style.modalBackdrop} */}
-                <div className="bg-white p-5 rounded-md shadow-lg max-w-sm md:ax-w-md mx-auto transition-transform duration-300 transform-gpu">
-                    <div className="flex justify-between mb-4">
+                <div className={`bg-white p-4 rounded-md shadow-lg md:w-${widht} h-full md:h-auto w-full ax-w-md mx-auto transition-transform duration-300 transform-gpu`}>
+                    <div className="flex justify-between mb-4 border-b-2 border-[#445869]">
                         <span className="text-xl text-gray-700 flex justify-center font-medium items-center">{title}</span>
                         <div className="flex justify-end">
-                            <button className="text-gray-700 text-bold items-center rounded-lg p-3rounded cursor-pointer" 
+                            <button className="text-gray-700 text-bold items-center rounded-lg p-3 cursor-pointer" 
                                     onClick={onClose}>
                                 
                                 <span className="text-2xl">×</span>

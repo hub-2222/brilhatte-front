@@ -2,12 +2,13 @@
 import Input from "/app/components/input/Input";
 import Image from "next/image";
 import HotfixInput from "@/app/components/input/HotfixInput";
-import {useState} from "react";
 import {api} from "@/app/api/api";
 import { Modal } from "@/app/components/modal/Modal";
 import Search from "@/app/components/input/InputSearch";
+import ItemInput from "@/app/components/input/ItemInput";
 import Card from "@/app/components/card/Card";
 import styles from "./cardlist.module.css"
+import {useEffect, useState} from "react";
 
 export default function Page(props) {
     const [characterList, setCharacterList] = useState([]);
@@ -16,6 +17,24 @@ export default function Page(props) {
     const [page, setPage] = useState(0);
     const [maxPages, setMaxPages] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [nextId32, setNextId32] = useState(0)
+    const [hotfixes32, setHotfix32] = useState([
+        {
+            id: 0,
+            largura: 32,
+            comprimento: 0,
+            tamanho: "TRINTA_DOIS",
+            deletable: false
+        }
+    ])
+
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = 'hidden';
+        } else document.body.style.overflow = 'scroll';
+        return () => {};
+    }, [isModalOpen]);
+
   /*   async function getCharactersList() {
       setListLoading(true);
       await api
@@ -46,6 +65,42 @@ export default function Page(props) {
     }, [page]); */
 
     const [roupaSelected, setRoupaSelected] = useState(null)
+
+    var item = {largura: "",
+            comprimento: ""
+     }
+    
+    function handleChangeComprimento(item, valor) {
+        item.comprimento = valor
+    }
+
+    function handleChangeLargura(item, valor) {
+        console.log(valor)
+        item.largura = valor
+    }
+
+    function add32() {
+        let prox = nextId32 + 1;
+        setHotfix32( [
+            ...hotfixes32,
+            {
+                id: prox,
+                largura: 32,
+                comprimento: 0,
+                tamanho: "TRINTA_DOIS",
+                deletable: true
+            }
+        ]);
+
+        setNextId32(prox)
+    }
+
+    
+    function remove32(item) {
+        const newList = hotfixes32.filter(h => h.id !== item.id)
+        setHotfix32(newList)
+    }
+
 
     const json2 = [
         {
@@ -439,6 +494,7 @@ export default function Page(props) {
             ]
         }
     ]
+
     return (
         <main>
             <Search placeholder="Digite o nome da peça que está buscando aqui."/>
@@ -464,24 +520,61 @@ export default function Page(props) {
                 </div>
             </section>
             <Modal 
-               title="Cadastro de Protudos" 
-               isOpen={isModalOpen} 
+               title="Cadastro de Roupas" 
+               isOpen={isModalOpen}
+               widht="1/2"
                onClose={() => {
                setIsModalOpen(false)
             }}>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col w-full gap-4 p-2 md:max-h-[50vh] max-h-full overflow-y-auto">
                     <Input label="Nome"></Input>
-                    <div className="flex gap-2">
-                        <Input label="Largura Frente"></Input>
-                        <Input label="Largura Costa"></Input>
+                    <div className="flex gap-2 flex-row w-full items-stretch;">
+
+                        <Input label="Largura Frente"
+                               placeholder="0,00"
+                               type="number"
+                               align="text-right"
+                               value=""></Input>
+                    
+                        <Input label="Largura Costa"
+                               placeholder="0,00"
+                               type="number"
+                               align="text-right"
+                               value=""></Input>
                     </div>
-                    <div className="flex gap-2">
-                        <Input label="Comprimento Frente"></Input>
-                        <Input label="Comprimento Costas"></Input>
+                    <div className="flex gap-2 w-full">
+                        <Input label="Comprimento Frente"
+                               placeholder="0,00"
+                               type="number"
+                               align="text-right"
+                               value=""></Input>
+
+                        <Input label="Comprimento Costas"
+                               placeholder="0,00"
+                               type="number"
+                               align="text-right"
+                               value=""></Input>
                     </div>
-                    <div className="flex justify-end">
-                        <button className=" text-white px-4 py-2 rounded cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400">Salvar</button>
+                    <div className="">
+                        <span className="mb-2 text-sm font-medium text-gray-700">Pedras:</span>
+                        <div className="flex flex-col gap-2">
+                            {
+                                hotfixes32.sort((a, b) => a.id - b.id).map(item => (
+                                    <div key={item.id}>
+                                        <ItemInput hotfix={item}
+                                                id={item.id}
+                                                onClickAdd={add32}
+                                                deletable={item.deletable}
+                                                onClickDelete={remove32}>
+                                                </ItemInput>
+                                    </div>
+                                ))
+                            } 
+                        </div>
                     </div>
+                </div>
+                <div className="flex justify-end">
+                    <button className=" text-white mt-4 px-4 py-2 rounded cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400">Salvar</button>
                 </div>
             </Modal>
         </main>
