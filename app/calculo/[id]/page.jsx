@@ -1,11 +1,13 @@
 "use client"
+import Input from "/app/components/input/Input";
+import Image from "next/image";
 import HotfixInput from "@/app/components/input/HotfixInput";
-import Input from "@/app/components/input/Input";
-import Card from "@/app/components/card/Card";
-import { useState } from "react";
-import { api } from "@/app/api/api";
+import {useState} from "react";
+import {api} from "@/app/api/api";
+import styles from "./calculo.module.css"
 
 export default function Page(props) {
+
     const [nextId32, setNextId32] = useState(0)
     const [nextId24, setNextId24] = useState(0)
     const [maoObra, setMaoObra] = useState(0)
@@ -120,26 +122,55 @@ export default function Page(props) {
     }
 
     return (
-            <div className="flex flex-col justify-between items-center h-screen fds space-y-2 mx-32">
-                <div>
-                    <span className="text-2xl">Calcular preço de custo</span>
+        
+        <div className="flex flex-col justify-evenly gap-4 items-center mx-10">
+            <div className="p-10 text-center">
+                <span className="text-2xl md:text-4xl">Calculadora de Preço</span>
+            </div>
+            <div className="flex gap-4 md:w-1/2 w-4/5">
+                <div className="md:h-[200px] md:w-[200px] h-[100px] w-[200px] relative bg-black">
+                    <Image
+                        src="/img/ARTE_-_ELEG0018.jpg"
+                        layout='fill'
+                        objectFit='contain'
+                    />
+                </div>
+                <div className="p-4 bg-white w-full rounded drop-shadow">
+                    <h1><b>{props.roupa?.nome}</b></h1>
+                    <p>Pedras:</p>
+                    <ul className="sm:text-xs">
+                        {
+                            props.roupa?.pedrasVinculadas?.map(pedra => (
+                                <li key={pedra.id}>{pedra.nome} - {pedra.quantidade} unidades</li>
+                            ))
+                        }
+                    </ul>
+                    <p>Tamanho:</p>
+                    <ul className="">
+                        {
+                            props.roupa?.comprimentoFrente>0? <li>Frente: L: {props.roupa?.larguraFrente}cm C: {props.roupa?.comprimentoFrente}cm </li> : ''
+                        }
+
+                        {
+                            props.roupa?.comprimentoCostas>0? <li>Costas: L: {props.roupa?.larguraCostas}cm C: {props.roupa?.comprimentoCostas}cm </li> : ''
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div className="flex flex-row w-full">
+                <div className="w-full pr-2">
+                    <Input type="number" onChange={(maoObra) => setMaoObra(maoObra)} teste={maoObra} label="Mão de obra"
+                            placeholder="0.00"></Input>
                 </div>
                 <div className="w-full">
-                    <Card roupa={props.roupa} unclickable={true}></Card>
+                    <Input type="number" onChange={(porcentagemLucro) => setPorcentagemLucro(porcentagemLucro)}
+                            teste={porcentagemLucro} label="Porcentagem de lucro" placeholder="0%"></Input>
                 </div>
-                <div className="flex flex-row w-full">
-                    <div className="w-full pr-2">
-                        <Input type="number" onChange={(maoObra) => setMaoObra(maoObra)} teste={maoObra} label="Mão de obra"
-                               placeholder="0.00"></Input>
-                    </div>
-                    <div className="w-full">
-                        <Input type="number" onChange={(porcentagemLucro) => setPorcentagemLucro(porcentagemLucro)}
-                               teste={porcentagemLucro} label="Porcentagem de lucro" placeholder="0%"></Input>
-                    </div>
-                </div>
-                <div className="w-full h-4/5 overflow-y-auto pr-3 shadow-inner">
-                    <div className="">
-                        <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
+            </div>
+            <div className="w-full flex flex-col gap-4  md:flex-row">
+                <div className="w-full drop-shadow">
+                    <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
+                    <div className={`${styles.bgInputs}`}>
                         {
                             hotfixes32.sort((a, b) => a.id - b.id).map(item => (
                                 <div key={item.id}>
@@ -153,10 +184,12 @@ export default function Page(props) {
                                         onClickDelete={remove32}/>
                                 </div>
                             ))
-                        }
+                        } 
                     </div>
-                    <div className="">
-                        <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 24cm</label>
+                </div>
+                <div className="w-full drop-shadow">
+                    <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 24cm</label>
+                    <div className={`${styles.bgInputs}`}>
                         {hotfixes24.sort((a, b) => a.id - b.id).map(item => (
                                 <div key={item.id}>
                                     <HotfixInput
@@ -172,26 +205,27 @@ export default function Page(props) {
                         )}
                     </div>
                 </div>
-                <div className="w-full">
-                    <div>
-                        <div className="flex border rounded-lg drop-shadow">
-                            <button onClick={calcular}
-                                    className="inline-flex hover:bg-gray-600 active:bg-gray-700 items-center px-3 text-sm rounded-s-lg bg-gray-500 text-white">
-                                Calcular
-                            </button>
-                            <span className="inline-flex items-center px-2 text-sm bg-pastelgreen-400 text-white">
-                        R$
-                    </span>
-                            <input type="button"
-                                   id="website-admin"
-                                   disabled
-                                   value={precoCusto}
-                                   className="rounded-e-lg disabled:bg-white text-right text-gray-900 block min-w-0 w-full focus:outline-none focus:ring-1 text-sm p-2.5"
-                                   placeholder="0"/>
-                        </div>
+            </div>
+            <div className="w-full">
+                <div>
+                    <div className="flex border rounded-lg drop-shadow mt-10 mb-10">
+                        <button onClick={calcular}
+                                className="inline-flex hover:bg-gray-600 active:bg-gray-700 items-center px-3 text-sm rounded-s-lg bg-gray-500 text-white">
+                            Calcular
+                        </button>
+                        <span className="inline-flex items-center px-2 text-sm bg-pastelgreen-400 text-white">
+                    R$
+                </span>
+                        <input type="button"
+                                id="website-admin"
+                                disabled
+                                value={precoCusto}
+                                className="rounded-e-lg disabled:bg-white text-right text-gray-900 block min-w-0 w-full focus:outline-none focus:ring-1 text-sm p-2.5"
+                                placeholder="0"/>
                     </div>
                 </div>
             </div>
+        </div>
 
     );
 }
