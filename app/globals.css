@@ -17,6 +17,9 @@
 body {
   background-color: var(--bg);
   color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .ellipsis {
