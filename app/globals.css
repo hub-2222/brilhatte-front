@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --bg: #F2F2F2;
+  --bg: #eceef0;
   --text: black;
   --btn: #445869;
 }
@@ -17,7 +17,6 @@
 body {
   background-color: var(--bg);
   color: var(--text);
-  overflow: hidden;
 }
 
 .ellipsis {
@@ -25,16 +24,6 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
-.fds {
-  height: calc(100vh - 220px);
-}
-
-.active {
-  background-color: rgba(68, 88, 105, 0.2);
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px 0px inset;
-}
-
 
 ::-webkit-scrollbar {
   width: 8px;

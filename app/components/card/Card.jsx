@@ -3,22 +3,14 @@ import Image from "next/image";
 import styles from "./card.module.css"
 import { useState } from "react";
 import { Flow_Rounded } from "next/font/google";
+import { useRouter } from 'next/navigation'
 
 export default function Card (props) {
-
-    const [unclickable, setUnclickable] = useState(!!props.unclickable);
-
-    function selected(id) {
-        if(!unclickable) {
-            document.querySelectorAll('.card').forEach((item) => item.classList.remove('active'));
-            document.getElementById("card-" + id).classList.add('active');
-            props.selectRoupa(props.roupa)
-        }
-    }
+    const router = useRouter()
 
     return (
-        <div id={`card-${props.roupa?.id}`} onClick={() => selected(props.roupa?.id)} className={`card ${styles.container}`}>
-            <div className="flex flex-col">
+        <div onClick={() => router.push(`/calculo/${props.roupa.id}`)} id={`card-${props.roupa?.id}`} className={`${styles.card}`}>
+            <div className="">
                 <Image
                     src="/img/ARTE_-_ELEG0018.jpg"
                     alt="Logo"
@@ -29,10 +21,10 @@ export default function Card (props) {
                 />
             </div>
 
-            <div className="p-5">
+            <div className="">
                 <h1><b>{props.roupa?.nome}</b></h1>
                 <p>Pedras:</p>
-                <ul className="list-disc pl-8">
+                <ul className="">
                     {
                         props.roupa?.pedrasVinculadas?.map(pedra => (
                             <li key={pedra.id}>{pedra.nome} - {pedra.quantidade} unidades</li>
@@ -40,7 +32,7 @@ export default function Card (props) {
                     }
                 </ul>
                 <p>Tamanho:</p>
-                <ul className="list-disc pl-8">
+                <ul className="">
                     {
                         props.roupa?.comprimentoFrente>0? <li>Frente: L: {props.roupa?.larguraFrente}cm C: {props.roupa?.comprimentoFrente}cm </li> : ''
                     }

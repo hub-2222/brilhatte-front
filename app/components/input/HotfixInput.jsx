@@ -22,8 +22,8 @@ export default function HotfixInput(props) {
     return (
         <div>
             <div className="flex flex-row w-full items-end">
-                <div className="w-1/6 pr-2">
-                    <span className="mb-2 text-xs w-fit font-medium text-gray-400 ellipsis">Largura utilizada</span>
+                <div className="w-full pr-2">
+                    <span className="mb-2 text-xs font-medium text-gray-700 ellipsis">Largura (cm)</span>
                     <input type="number"
                            onChange={(e) => changeLargura(props.hotfix, e.target.value)}
                            id="hotfix-32-l"
@@ -32,7 +32,7 @@ export default function HotfixInput(props) {
                            placeholder="0"/>
                 </div>
                 <div className="w-full">
-                    <label className="mb-2 relative text-xs font-medium text-right text-gray-400">Comprimento utilizado</label>
+                    <label className="mb-2 relative text-xs font-medium text-right text-gray-700">Comprimento (cm)</label>
                     <input type="number"
                            value={comprimento}
                            onChange={(e) => changeComprimento(props.hotfix, e.target.value)}
@@ -45,15 +45,15 @@ export default function HotfixInput(props) {
                     <div className="w-fit h-full">
                         <button
                             onClick={(e) => props.onClickDelete(props)}
-                            className="inline-flex py-2 px-4  ml-2 h-full hover:bg-red-500 active:bg-red-600 items-center rounded-lg bg-red-400 text-white">
-                            -
+                            className="ml-2 w-10 h-10 flex justify-center align-middle hover:bg-red-500 active:bg-red-600 items-center rounded-lg bg-red-400 text-white">
+                            ×
                         </button>
                     </div>
                     :
                     <div className="w-fit h-full">
                         <button
                             onClick={props.onClickAdd}
-                            className="inline-flex py-2 px-4  ml-2 h-full hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center rounded-lg bg-pastelgreen-400 text-white">
+                            className="ml-2 w-10 h-10 flex justify-center align-middle hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center rounded-lg bg-pastelgreen-400 text-white">
                             +
                         </button>
                     </div>
