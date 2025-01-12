@@ -23,8 +23,17 @@ export default function ItemInput(props) {
     return (
         <div>
             <div className="flex flex-row w-full items-end">
-                <div className="w-full pr-2">
-                    <Input></Input>
+                <div className="flex w-full gap-2 pr-2">
+                    <div className="w-full">
+                        <Input label="Selecione"></Input>
+                    </div>
+                    <div>
+                        <Input label="Quantidade"
+                               type="number"
+                               placeholder="0"
+                               align="text-right"
+                               value=""></Input>
+                    </div>
                 </div>
                 {
                     props.deletable ?

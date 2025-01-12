@@ -525,7 +525,7 @@ export default function Page(props) {
                onClose={() => {
                setIsModalOpen(false)
             }}>
-                <div className="flex flex-col w-full gap-4 p-2 md:max-h-[50vh] max-h-full overflow-y-auto">
+                <div className="flex flex-col w-full gap-4 p-2 md:max-h-[60vh] max-h-full overflow-y-auto">
                     <Input label="Nome"></Input>
                     <div className="flex gap-2 flex-row w-full items-stretch;">
 
@@ -555,24 +555,24 @@ export default function Page(props) {
                                value=""></Input>
                     </div>
                     <div className="">
-                        <span className="mb-2 text-sm font-medium text-gray-700">Pedras:</span>
+                        <span className="mb-2 text-lg font-medium text-gray-700">Pedras:</span>
                         <div className="flex flex-col gap-2">
                             {
                                 hotfixes32.sort((a, b) => a.id - b.id).map(item => (
                                     <div key={item.id}>
                                         <ItemInput hotfix={item}
-                                                id={item.id}
-                                                onClickAdd={add32}
-                                                deletable={item.deletable}
-                                                onClickDelete={remove32}>
-                                                </ItemInput>
+                                                   id={item.id}
+                                                   onClickAdd={add32}
+                                                   deletable={item.deletable}
+                                                   onClickDelete={remove32}>
+                                        </ItemInput>
                                     </div>
                                 ))
                             } 
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-end">
+                <div className="flex mt-2 justify-end border-t-2 border-[#445869]">
                     <button className=" text-white mt-4 px-4 py-2 rounded cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400">Salvar</button>
                 </div>
             </Modal>
