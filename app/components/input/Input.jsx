@@ -9,7 +9,7 @@ export default function Input(props) {
     }
 
     return (
-        <div className="drop-shadow flex-1">
+        <div className="drop-shadow">
             <label className="mb-2 text-sm font-medium text-gray-700">{props.label}</label>
             <input type={props.type || "text"}
                    onChange={handleChange}

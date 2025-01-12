@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Input(props) {
     return (
         <div>
-           <div className="w-fill flex justify-end items-center relative mb-6 drop-shadow m-10">
+           <div className="w-fill flex justify-end items-center relative mb-6 drop-shadow my-10">
                 <label htmlFor="default-input" className="block mb-2 text-sm font-medium text-gray-900">{props.label}</label>
                 <input type="text"
                        id="default-input"
