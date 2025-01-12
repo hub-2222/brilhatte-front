@@ -24,11 +24,20 @@ export const Modal = (
             }
         }
         window.addEventListener("keydown", handleKeyDown)
+
     }, [onClose])
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else document.body.style.overflow = 'scroll';
+        return () => {};
+    }, [isOpen]);
     
     if (!isOpen) return null;
 
     return( 
+        
         <>
             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center *:transition-opacity duration-300">
                 <div className={`bg-white p-4 rounded-md shadow-lg md:w-${widht} h-full md:h-auto w-full ax-w-md mx-auto transition-transform duration-300 transform-gpu`}>

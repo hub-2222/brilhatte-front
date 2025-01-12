@@ -20,6 +20,17 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  
+}
+
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 .ellipsis {

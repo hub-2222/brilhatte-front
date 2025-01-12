@@ -17,6 +17,7 @@ export default function Page(props) {
     const [page, setPage] = useState(0);
     const [maxPages, setMaxPages] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [editRoupa, setEditRoupa] = useState();
     const [nextId32, setNextId32] = useState(0)
     const [hotfixes32, setHotfix32] = useState([
         {
@@ -27,13 +28,6 @@ export default function Page(props) {
             deletable: false
         }
     ])
-
-    useEffect(() => {
-        if (isModalOpen) {
-            document.body.style.overflow = 'hidden';
-        } else document.body.style.overflow = 'scroll';
-        return () => {};
-    }, [isModalOpen]);
 
   /*   async function getCharactersList() {
       setListLoading(true);
@@ -101,6 +95,11 @@ export default function Page(props) {
         setHotfix32(newList)
     }
 
+    function edit(e, id) {
+        e.stopPropagation()
+        setEditRoupa(id);
+        setIsModalOpen(true);
+    }
 
     const json2 = [
         {
@@ -498,12 +497,12 @@ export default function Page(props) {
     return (
         <main>
             <Search placeholder="Digite o nome da peça que está buscando aqui."/>
-            <section className="min-h-screen flex flex-col items-center">
+            <section className="mflex flex-col items-center">
                 <div className={`${styles.container}`}>
                     <div className="flex flex-wrap justify-between items-center">
                         {
                             json2?.map(roupa => (
-                                <Card roupa={roupa} selectRoupa={setRoupaSelected}/>
+                                <Card roupa={roupa} edit={edit} selectRoupa={setRoupaSelected}/>
                             ))
                         }
                         <div className="fixed bottom-6 right-8 cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400 p-4 rounded-full drop-shadow-xl" 
