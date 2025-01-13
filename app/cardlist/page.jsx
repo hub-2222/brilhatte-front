@@ -575,11 +575,13 @@ export default function Page(props) {
                         </div>
                         <div className="">
                             <span className="mb-2 text-lg font-medium text-gray-700">Pedras:</span>
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-2 mb-20">
                                 {
-                                    hotfixes32.sort((a, b) => a.id - b.id).map(item => (
+                                    hotfixes32.sort((a, b) => a.id - b.id).map((item, index) => (
                                         <div key={item.id}>
-                                            <ItemInput hotfix={item}
+                                            <ItemInput 
+                                                    index={index}
+                                                    hotfix={item}
                                                     id={item.id}
                                                     onClickAdd={add32}
                                                     deletable={item.deletable}
