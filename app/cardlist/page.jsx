@@ -2,15 +2,25 @@
 import Input from "/app/components/input/Input";
 import Image from "next/image";
 import HotfixInput from "@/app/components/input/HotfixInput";
-import {api} from "@/app/api/api";
 import { Modal } from "@/app/components/modal/Modal";
 import Search from "@/app/components/input/InputSearch";
 import ItemInput from "@/app/components/input/ItemInput";
 import Card from "@/app/components/card/Card";
 import styles from "./cardlist.module.css"
 import {useEffect, useState} from "react";
+import Link from "next/link";
+import { useEdgeStore } from "@/lib/edgestore";
+import { SingleImageDropzone } from "@/app/components/input/single-image-dropzone";
+import {
+    EdgeStoreApiClientError,
+    UploadAbortedError,
+  } from '@edgestore/react/errors';
 
 export default function Page(props) {
+    const [file, setFile] = useState();
+    const [progress, setProgress] = useState(0);
+    const [urls, setUrls] = useState();
+    const { edgestore } = useEdgeStore();
     const [characterList, setCharacterList] = useState([]);
     const [loading, setLoading] = useState(false);
     const [listLoading, setListLoading] = useState(false);
@@ -532,13 +542,13 @@ export default function Page(props) {
             <Modal 
                title="Cadastro de Modelo" 
                isOpen={isModalOpen}
-               widht="1/2"
+               widht="60%"
                full={true}
                onClose={() => {
                setIsModalOpen(false)
             }}>
-                <div className="flex flex-col h-[91%] md:max-h-[60vh] max-h-full">
-                    <div className="flex flex-col h-full w-full gap-4 p-2  overflow-y-auto">
+                <div className="flex flex-col h-[91%] md:max-h-ful max-h-full">
+                    <div className="flex flex-col h-full w-full gap-5 p-2  overflow-y-auto">
                         <Input label="Nome"></Input>
                         <div className="flex gap-2 w-full items-stretch">
                             <div className="w-full">
@@ -575,7 +585,7 @@ export default function Page(props) {
                         </div>
                         <div className="">
                             <span className="mb-2 text-lg font-medium text-gray-700">Pedras:</span>
-                            <div className="flex flex-col gap-2 mb-20">
+                            <div className="flex flex-col gap-2">
                                 {
                                     hotfixes32.sort((a, b) => a.id - b.id).map((item, index) => (
                                         <div key={item.id}>
@@ -591,6 +601,89 @@ export default function Page(props) {
                                     ))
                                 } 
                             </div>
+                        </div>
+                        <div className="flex md:flex-row flex-col mt-5 md:items-start items-center">
+                            <span className="flex-[1] mb-2 text-lg font-medium text-gray-700">Selecione uma imagem:</span>
+                            <SingleImageDropzone
+                                width={200}
+                                height={200}
+                                value={file}
+                                dropzoneOptions={{
+                                    maxSize: 1024 * 1024 * 1, // 1MB
+                                }}
+                                onChange={(file) => {
+                                    setFile(file);
+                                }}
+                                    
+                            />
+                            <div className="flex-[1]"></div>
+                                {/* <div className="h-[6px] w-44 border rounded overflow-hidden">
+                                <div
+                                className="h-full bg-slate-600 transition-all duration-150"
+                                style={{
+                                    width: `${progress}%`,
+                                }}
+                                />
+                            </div> */}
+                            {/* <button className="p-2 bg-slate-500 m-2"
+                                    onClick={async () => {
+                                        try {
+                                            if (file) {
+                                            const res =
+                                            await edgestore.myPublicImages.upload({file,
+                                                input: { type: "post" },
+                                                onProgressChange: (progress) => {
+                                                setProgress(progress);
+                                                },});
+                                            // save your data here
+                                            setUrls({
+                                                url: res.url,
+                                                thumbnailUrl: res.thumbnailUrl,
+                                            });
+                                            }
+                                        } catch (error) {
+                                            // All errors are typed and you will get intellisense for them
+                                            if (error instanceof EdgeStoreApiClientError) {
+                                              // if it fails due to the `maxSize` set in the router config
+                                              if (error.data.code === 'FILE_TOO_LARGE') {
+                                                alert(
+                                                  `O arquivo é grande demais. Tamanho máximo é ${formatFileSize(
+                                                    error.data.details.maxFileSize,
+                                                  )}`,
+                                                );
+                                              }
+                                              // if it fails due to the `accept` set in the router config
+                                              if (error.data.code === 'MIME_TYPE_NOT_ALLOWED') {
+                                                alert(
+                                                  `Tipo de arquivo inválido. Tente usar: ${error.data.details.allowedMimeTypes.join(
+                                                    ', ',
+                                                  )}`,
+                                                );
+                                              }
+                                              // if it fails during the `beforeUpload` check
+                                              if (error.data.code === 'UPLOAD_NOT_ALLOWED') {
+                                                alert("Você não tem permissão para armazenar arquivos.");
+                                              }
+                                            } else if (error instanceof UploadAbortedError) {
+                                              // if the upload was canceled from an AbortController's signal
+                                              console.log('Upload abortado');
+                                            } else {
+                                              // unknown error
+                                              console.error(error);
+                                            }
+                                        }
+                                      }}
+                              >teste</button>
+                              {urls?.url && (
+                                    <Link href={urls.url} target="_blank">
+                                    URL
+                                    </Link>
+                                )}
+                                {urls?.thumbnailUrl && (
+                                    <Link href={urls.thumbnailUrl} target="_blank">
+                                    THUMBNAIL
+                                    </Link>
+                                )} */}
                         </div>
                     </div>
                     <div className="flex mt-2 justify-end border-t-2 border-[#445869]">
