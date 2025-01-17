@@ -15,8 +15,9 @@ export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <main className="h-full">
-            <div className="flex h-4/5 justify-center items-center">
+        <main className="h-[80vh]">
+            <div className="flex flex-col h-full justify-center items-center">
+
                 <div className={`${styles.bgInputs}`}>
                     <h1 className="font-bold text-xl text-gray-500 mb-10">Entre com seu usuário</h1>
                     <div className="flex flex-col gap-4">

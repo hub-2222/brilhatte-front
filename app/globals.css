@@ -15,16 +15,19 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background-color: var(--bg);
   color: var(--text);
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  height: 100%;
 }
 
 html::-webkit-scrollbar {

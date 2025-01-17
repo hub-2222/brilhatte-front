@@ -515,9 +515,8 @@ export default function Page(props) {
     ]
 
     return (
-        <main>
-           
-            <section className=" flex-col items-center">
+        <main className="h-full">
+            <section className=" flex-col items-center h-full">
                 <div className={`${styles.container}`}>
                 <Search placeholder="Digite o nome da peça que está buscando aqui."/>
                     <div className="flex flex-wrap justify-between items-center">
