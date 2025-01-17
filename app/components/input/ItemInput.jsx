@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import Input from "/app/components/input/Input";
+import {Input} from "@heroui/input";
 import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 
 export default function ItemInput(props) {
@@ -70,12 +70,11 @@ export default function ItemInput(props) {
 
     return (
         <div>
-            <div className="flex flex-row w-full items-end">
+            <div className="flex flex-row w-full items-center">
                 <div className="flex w-full gap-2 pr-2">
                     <div className={`w-full drop-shadow`}>
-                        <label className="mb-2 text-sm font-medium text-gray-700">Selecione</label>
                         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                            <Autocomplete className="h-[42px]" label="Select an animal">
+                            <Autocomplete label="Selecione">
                                 {animals.map((animal) => (
                                 <AutocompleteItem key={animal.key}>{animal.label}</AutocompleteItem>
                                 ))}
@@ -86,8 +85,7 @@ export default function ItemInput(props) {
                         <Input label="Quantidade"
                                type="number"
                                placeholder="0"
-                               align="text-right"
-                               value=""></Input>
+                               className="drop-shadow"></Input>
                     </div>
                 </div>
                 {

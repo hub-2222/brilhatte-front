@@ -1,5 +1,5 @@
 "use client"
-import Input from "/app/components/input/Input";
+import {Input} from "@heroui/input";
 import Image from "next/image";
 import HotfixInput from "@/app/components/input/HotfixInput";
 import { Modal } from "@/app/components/modal/Modal";
@@ -548,42 +548,38 @@ export default function Page(props) {
             }}>
                 <div className="flex flex-col h-[91%] md:max-h-ful max-h-full">
                     <div className="flex flex-col h-full w-full gap-5 p-2  overflow-y-auto">
-                        <Input label="Nome"></Input>
+                        <Input label="Nome" className="drop-shadow"></Input>
                         <div className="flex gap-2 w-full items-stretch">
                             <div className="w-full">
                                 <Input label="Largura Frente"
-                                    placeholder="0,00"
-                                    type="number"
-                                    align="text-right"
-                                    value=""></Input>
+                                       placeholder="0,00"
+                                       className="drop-shadow"
+                                       type="number"></Input>
                             </div>
                             <div className="w-full">
                                 <Input label="Largura Costa"
-                                    placeholder="0,00"
-                                    type="number"
-                                    align="text-right"
-                                    value=""></Input>
+                                       placeholder="0,00"
+                                       className="drop-shadow"
+                                       type="number"></Input>
                             </div>
                         </div>
                         <div className="flex gap-2 w-full">
                             <div className="w-full">
                                 <Input label="Comprimento Frente"
-                                    placeholder="0,00"
-                                    type="number"
-                                    align="text-right"
-                                    value=""></Input>
+                                       placeholder="0,00"
+                                       className="drop-shadow"
+                                       type="number"></Input>
                             </div>
 
                             <div className="w-full">
                                 <Input label="Comprimento Costas"
                                     placeholder="0,00"
-                                    type="number"
-                                    align="text-right"
-                                    value=""></Input>
+                                    className="drop-shadow"
+                                    type="number"></Input>
                             </div>
                         </div>
                         <div className="">
-                            <span className="mb-2 text-lg font-medium text-gray-700">Pedras:</span>
+                            <span className="mb-2 text-lg font-medium text-gray-700">Joias:</span>
                             <div className="flex flex-col gap-2">
                                 {
                                     hotfixes32.sort((a, b) => a.id - b.id).map((item, index) => (

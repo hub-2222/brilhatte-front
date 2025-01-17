@@ -1,5 +1,5 @@
 "use client"
-import Input from "/app/components/input/Input";
+import {Input} from "@heroui/input";
 import Image from "next/image";
 import HotfixInput from "@/app/components/input/HotfixInput";
 import {useState} from "react";
@@ -159,18 +159,18 @@ export default function Page(props) {
             </div>
             <div className="flex flex-row w-full">
                 <div className="w-full pr-2">
-                    <Input type="number" onChange={(maoObra) => setMaoObra(maoObra)} teste={maoObra} label="Mão de obra"
-                            placeholder="0.00"></Input>
+                    <Input type="number" onChange={(maoObra) => setMaoObra(maoObra)} label="Mão de obra"
+                            placeholder="0.00" className="drop-shadow"></Input>
                 </div>
                 <div className="w-full">
                     <Input type="number" onChange={(porcentagemLucro) => setPorcentagemLucro(porcentagemLucro)}
-                            teste={porcentagemLucro} label="Porcentagem de lucro" placeholder="0%"></Input>
+                           className="drop-shadow" label="Porcentagem de lucro" placeholder="0%"></Input>
                 </div>
             </div>
             <div className="w-full flex flex-col gap-4  md:flex-row">
                 <div className="w-full drop-shadow">
                     <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
-                    <div className={`${styles.bgInputs}`}>
+                    <div className={`flex flex-col gap-2`}>
                         {
                             hotfixes32.sort((a, b) => a.id - b.id).map(item => (
                                 <div key={item.id}>
@@ -189,7 +189,7 @@ export default function Page(props) {
                 </div>
                 <div className="w-full drop-shadow">
                     <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 24cm</label>
-                    <div className={`${styles.bgInputs}`}>
+                    <div className={`flex flex-col gap-2`}>
                         {hotfixes24.sort((a, b) => a.id - b.id).map(item => (
                                 <div key={item.id}>
                                     <HotfixInput

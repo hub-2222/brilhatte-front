@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {Input} from "@heroui/input";
 
 export default function HotfixInput(props) {
     const [largura, setLargura] = useState(0)
@@ -21,24 +22,22 @@ export default function HotfixInput(props) {
 
     return (
         <div>
-            <div className="flex flex-row w-full items-end">
+            <div className="flex flex-row w-full items-center">
                 <div className="w-full pr-2">
-                    <span className="mb-2 text-xs font-medium text-gray-700 ellipsis">Largura (cm)</span>
-                    <input type="number"
+                    <Input id="hotfix-32-l"
+                           label="Largura (cm)"
+                           placeholder="0"
                            onChange={(e) => changeLargura(props.hotfix, e.target.value)}
-                           id="hotfix-32-l"
-                           value={largura}
-                           className="rounded-lg border border-gray-300 drop-shadow text-right text-gray-900 min-w-0 w-full focus:outline-none focus:ring-1 text-sm p-2.5"
-                           placeholder="0"/>
+                           defaultValue={largura}
+                           className="drop-shadow"></Input>
                 </div>
                 <div className="w-full">
-                    <label className="mb-2 relative text-xs font-medium text-right text-gray-700">Comprimento (cm)</label>
-                    <input type="number"
-                           value={comprimento}
-                           onChange={(e) => changeComprimento(props.hotfix, e.target.value)}
-                           id="hotfix-32-c"
-                           className="rounded-lg border border-gray-300 drop-shadow text-right text-gray-900 min-w-0 w-full focus:outline-none focus:ring-1 text-sm p-2.5"
-                           placeholder="0"/>
+                    <Input id="hotfix-32-l"
+                            label="Comprimento (cm)"
+                            placeholder="0"
+                            onChange={(e) => changeComprimento(props.hotfix, e.target.value)}
+                            defaultValue={comprimento}
+                            className="drop-shadow"></Input>
                 </div>
                 {
                     props.deletable ?

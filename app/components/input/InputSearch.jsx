@@ -1,15 +1,13 @@
 import Image from "next/image";
+import {Input} from "@heroui/input";
 
-export default function Input(props) {
+export default function Page(props) {
     return (
         <div>
            <div className="w-fill flex justify-end items-center relative mt-6 mb-6 drop-shadow">
-                <label htmlFor="default-input" className="block mb-2 text-sm font-medium text-gray-900">{props.label}</label>
-                <input type="text"
-                       id="default-input"
-                    placeholder={props.placeholder}
-                    className="placeholder:text-gray-400 placeholder:text-left w-full border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"/>
-
+              <Input label={props.label}
+                     placeholder={props.placeholder}
+                     className="drop-shadow"></Input>
                 <img src="/img/icons8-search-32.png" className="absolute mr-2 w-5" alt="Search Icon" />
             </div>
 
