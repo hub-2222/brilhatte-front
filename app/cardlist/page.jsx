@@ -124,15 +124,15 @@ export default function Page(props) {
     const json2 = [
         {
             "id": 1,
-            "nome": "Vestido",
+            "nome": "TESTE DE NOME DE VESTIDO BRILHATTE",
             "comprimentoFrente": 1.0,
             "comprimentoCostas": 1.0,
             "larguraFrente": 2.0,
             "larguraCostas": 2.0,
-            "pedras_vinculadas": [
+            "pedrasVinculadas": [
                 {
                     "id": 1,
-                    "nome": "sextavado gold 3mm",
+                    "nome": "Epoxy nude",
                     "tamanho": "3mm",
                     "valor_unitario": 0.5,
                     "quantidade": 500,
@@ -140,10 +140,18 @@ export default function Page(props) {
                 },
                 {
                     "id": 2,
-                    "nome": "sextavado black 3mm",
-                    "tamanho": "3mm",
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
                     "valor_unitario": 0.5,
-                    "quantidade": 500,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
                     "idRegra": 2
                 }
             ]
@@ -546,9 +554,9 @@ export default function Page(props) {
                onClose={() => {
                setIsModalOpen(false)
             }}>
-                <div className="flex flex-col h-[91%] md:max-h-ful max-h-full">
+                <div className="flex flex-col h-full md:max-h-[90%]">
                     <div className="flex flex-col h-full w-full gap-5 p-2  overflow-y-auto">
-                        <Input label="Nome" className="drop-shadow"></Input>
+                        <Input label="Digite o nome do modelo" className="drop-shadow"></Input>
                         <div className="flex gap-2 w-full items-stretch">
                             <div className="w-full">
                                 <Input label="Largura Frente"

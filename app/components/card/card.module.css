@@ -5,27 +5,52 @@
     max-width: calc(50% - 20px);
     max-height: 400px;
     width: 100%;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 4px;
     margin-bottom: 20px;
     transition: .3s;
-    cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background: white;
 }
 
-.card:hover {
-    border-color: black;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.btn {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+   /*  transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
-.btnEdit {
-    transition: .3s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.btnDel {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+   /*  transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
-.btnEdit:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.btnDel:hover > svg, .btnDel:hover{
+    fill: white;
+    background-color: #ef4444
+}
+
+.btnDel:active > svg, .btnDel:active {
+    background-color: #dc2626;
+}
+
+.btn:hover > svg{
+    fill: #445869;
+}
+
+.btn:active > svg{
+    fill: #3d4f5e;
+}
+
+.btn:hover, .btnDel:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
 }
 
 @media(max-width: 969px) {
@@ -33,5 +58,7 @@
         flex: 0 0 100%;
         max-width: 100%;
         max-height: 700px;
+        margin-bottom: 4px;
+        border-radius: 0;
     }
 }
