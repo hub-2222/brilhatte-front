@@ -11,32 +11,26 @@ export default function Card (props) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     return (
         <div id={`card-${props.roupa?.id}`} className={`w-full ${styles.card}`}>
-            
             <div className="flex flex-col w-full justify-between">
-                <div className="w-full p-3">
-                    <h1 className="text-gray-700"><b>{props.roupa?.nome}</b></h1>
-                    <ul className="">
-                        {
-                            props.roupa?.pedrasVinculadas?.map(pedra => (
-                                <li>
-                                    <tr className="border-b-1 w-full flex text-gray-600 hover:bg-gray-200">
+                <div className="flex flex-col justify-between h-full">
+                    <div className="flex flex-col h-full p-3 justify-between">
+                        <h1 className="md:text-base drop-shadow text-small text-gray-700"><b>{props.roupa?.nome}</b></h1>
+                        <div className={`${styles.scroll} max-h-28 md:max-h-44 overflow-y-auto`}>
+                            {
+                                props.roupa?.pedrasVinculadas?.map(pedra => (
+                                    <tr className="text-sm border-b-1 w-full flex text-gray-600 hover:bg-gray-200">
                                         <td className="w-full text-nowrap max-w-[33.33%]">{pedra.nome}</td>
                                         <td className="w-full text-nowrap max-w-[33.33%] text-center">{pedra.tamanho}</td>
                                         <td className="w-full text-nowrap max-w-[33.33%] text-right">{pedra.quantidade} un</td>
                                     </tr>                               
-                                </li>
-                            ))
-                        }
-                    </ul>
-                    {/* <ul className="">
-                        {
-                            props.roupa?.comprimentoFrente>0? <li>Frente: L: {props.roupa?.larguraFrente}cm C: {props.roupa?.comprimentoFrente}cm </li> : ''
-                        }
-
-                        {
-                            props.roupa?.comprimentoCostas>0? <li>Costas: L: {props.roupa?.larguraCostas}cm C: {props.roupa?.comprimentoCostas}cm </li> : ''
-                        }
-                    </ul> */}
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <div className="flex mt-3 text-xs text-gray-600 text-nowrap w-full justify-between">
+                        <p className="ml-3">Frente: {props.roupa?.comprimentoFrente} x {props.roupa?.larguraFrente}cm</p>
+                        <p className="mr-3">Costas: {props.roupa?.comprimentoCostas} x {props.roupa?.larguraCostas}cm</p>
+                    </div>
                 </div>
 
                 <div className="flex w-full justify-between items-end border-t-1">

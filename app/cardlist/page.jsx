@@ -153,6 +153,134 @@ export default function Page(props) {
                     "valor_unitario": 0.5,
                     "quantidade": 2000,
                     "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
                 }
             ]
         },
