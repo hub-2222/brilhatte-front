@@ -288,7 +288,7 @@ export default function Page(props) {
 
     return (
         
-        <div className="flex flex-col justify-evenly gap-4 items-center mx-10">
+        <div className="flex flex-col justify-between gap-4 items-center mx-2 md:mx-10">
             <div className="p-10 text-center">
                 <span className="text-2xl md:text-4xl">Calculadora de Preço</span>
             </div>
@@ -340,48 +340,50 @@ export default function Page(props) {
                            className="drop-shadow" label="Porcentagem de lucro" placeholder="0%"></Input>
                 </div>
             </div>
-            <div className="w-full flex flex-col gap-4  md:flex-row">
-                <div className="w-full drop-shadow">
-                    <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
-                    <div className={`flex flex-col gap-2`}>
-                        {
-                            hotfixes32.sort((a, b) => a.id - b.id).map(item => (
-                                <div key={item.id}>
-                                    <HotfixInput
-                                        id={item.id}
-                                        hotfix={item}
-                                        onChangeComprimento={handleChangeComprimento}
-                                        onChangeLargura={handleChangeLargura}
-                                        deletable={item.deletable}
-                                        onClickAdd={add32}
-                                        onClickDelete={remove32}/>
-                                </div>
-                            ))
-                        } 
+            <div className="max-h-[300px] md:max-h-[230px] p-2 overflow-y-auto w-full">
+                <div className="w-full flex flex-col gap-4 md:flex-row">
+                    <div className="w-full drop-shadow">
+                        <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 32cm</label>
+                        <div className={`flex flex-col gap-2`}>
+                            {
+                                hotfixes32.sort((a, b) => a.id - b.id).map(item => (
+                                    <div key={item.id}>
+                                        <HotfixInput
+                                            id={item.id}
+                                            hotfix={item}
+                                            onChangeComprimento={handleChangeComprimento}
+                                            onChangeLargura={handleChangeLargura}
+                                            deletable={item.deletable}
+                                            onClickAdd={add32}
+                                            onClickDelete={remove32}/>
+                                    </div>
+                                ))
+                            } 
+                        </div>
                     </div>
-                </div>
-                <div className="w-full drop-shadow">
-                    <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 24cm</label>
-                    <div className={`flex flex-col gap-2`}>
-                        {hotfixes24.sort((a, b) => a.id - b.id).map(item => (
-                                <div key={item.id}>
-                                    <HotfixInput
-                                        id={item.id}
-                                        hotfix={item}
-                                        onChangeComprimento={handleChangeComprimento}
-                                        onChangeLargura={handleChangeLargura}
-                                        deletable={item.deletable}
-                                        onClickAdd={add24}
-                                        onClickDelete={remove24}/>
-                                </div>
-                            )
-                        )}
+                    <div className="w-full drop-shadow">
+                        <label className="mb-2 text-sm font-medium text-gray-700">Hotfix 24cm</label>
+                        <div className={`flex flex-col gap-2`}>
+                            {hotfixes24.sort((a, b) => a.id - b.id).map(item => (
+                                    <div key={item.id}>
+                                        <HotfixInput
+                                            id={item.id}
+                                            hotfix={item}
+                                            onChangeComprimento={handleChangeComprimento}
+                                            onChangeLargura={handleChangeLargura}
+                                            deletable={item.deletable}
+                                            onClickAdd={add24}
+                                            onClickDelete={remove24}/>
+                                    </div>
+                                )
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="w-full">
                 <div>
-                    <div className="flex border rounded-lg drop-shadow mt-10 mb-10">
+                    <div className="flex border rounded-lg drop-shadow mt-6 mb-6">
                         <button onClick={calcular}
                                 className="inline-flex hover:bg-gray-600 active:bg-gray-700 items-center px-3 text-sm rounded-s-lg bg-gray-500 text-white">
                             Calcular
