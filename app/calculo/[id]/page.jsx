@@ -35,7 +35,7 @@ export default function Page(props) {
     ])
     async function calcular() {
         let calculoDTO = {
-            roupa: props.roupa,
+            roupa: json2,
             listHotfix: montarArrayHotfix(),
             maoObra: maoObra,
             porcentagemLucro: porcentagemLucro
@@ -120,6 +120,171 @@ export default function Page(props) {
         const newList = hotfixes24.filter(h => h.id !== item.id)
         setHotfix24(newList)
     }
+    
+    const json2 = [
+        {
+            "id": 1,
+            "nome": "TESTE DE NOME DE VESTIDO BRILHATTE",
+            "comprimentoFrente": 1.0,
+            "comprimentoCostas": 1.0,
+            "larguraFrente": 2.0,
+            "larguraCostas": 2.0,
+            "pedrasVinculadas": [
+                {
+                    "id": 1,
+                    "nome": "Epoxy nude",
+                    "tamanho": "3mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 500,
+                    "idRegra": 1
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 2,
+                    "nome": "Epoxy silver",
+                    "tamanho": "2mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 1000,
+                    "idRegra": 2
+                },
+                {
+                    "id": 3,
+                    "nome": "Epoxy gray",
+                    "tamanho": "8mm",
+                    "valor_unitario": 0.5,
+                    "quantidade": 2000,
+                    "idRegra": 2
+                }
+            ]
+        }
+    ]
 
     return (
         
@@ -127,35 +292,43 @@ export default function Page(props) {
             <div className="p-10 text-center">
                 <span className="text-2xl md:text-4xl">Calculadora de Preço</span>
             </div>
-            <div className="flex gap-4 md:w-1/2 w-4/5">
-                <div className="md:h-[200px] md:w-[200px] h-[100px] w-[200px] relative bg-black">
-                    <Image
-                        src="/img/ARTE_-_ELEG0018.jpg"
-                        layout='fill'
-                        objectFit='contain'
-                    />
+            <div id={`card-${json2[0].id}`} className={`w-full ${styles.card}`}>
+            <div className="flex flex-col w-full justify-between">
+                <div className="flex flex-col justify-between h-full">
+                    <div className="flex flex-col h-full p-3 justify-between box-border">
+                        <h1 className="md:text-base drop-shadow text-small text-gray-700"><b>{json2[0].nome}</b></h1>
+                        <div className={`${styles.scroll} h-auto overflow-y-auto`}>
+                            {
+                                json2[0].pedrasVinculadas?.map(pedra => (
+                                    <table className="w-full">
+                                        <tbody>
+                                            <tr className="text-sm border-b-1 w-full flex text-gray-600 hover:bg-gray-200">
+                                                <td className="w-full text-nowrap max-w-[33.33%]">{pedra.nome}</td>
+                                                <td className="w-full text-nowrap max-w-[33.33%] text-center">{pedra.tamanho}</td>
+                                                <td className="w-full text-nowrap max-w-[33.33%] text-right">{pedra.quantidade} un</td>
+                                            </tr>                               
+                                        </tbody>
+                                    </table>
+                                ))
+                            }
+                        </div>
+                        <div className="flex mt-3 text-sm text-gray-600 text-nowrap w-full justify-between">
+                            <p>Frente: {json2[0].comprimentoFrente} x {json2[0].larguraFrente}cm</p>
+                            <p>Costas: {json2[0].comprimentoCostas} x {json2[0].larguraCostas}cm</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="p-4 bg-white w-full rounded drop-shadow">
-                    <h1><b>{props.roupa?.nome}</b></h1>
-                    <p>Pedras:</p>
-                    <ul className="sm:text-xs">
-                        {
-                            props.roupa?.pedrasVinculadas?.map(pedra => (
-                                <li key={pedra.id}>{pedra.nome} - {pedra.quantidade} unidades</li>
-                            ))
-                        }
-                    </ul>
-                    <p>Tamanho:</p>
-                    <ul className="">
-                        {
-                            props.roupa?.comprimentoFrente>0? <li>Frente: L: {props.roupa?.larguraFrente}cm C: {props.roupa?.comprimentoFrente}cm </li> : ''
-                        }
-
-                        {
-                            props.roupa?.comprimentoCostas>0? <li>Costas: L: {props.roupa?.larguraCostas}cm C: {props.roupa?.comprimentoCostas}cm </li> : ''
-                        }
-                    </ul>
-                </div>
+            </div>
+            <div className="w-2/5">
+                <Image
+                    src="/img/ARTE_-_ELEG0018.jpg"
+                    alt="Logo"
+                    height={0}
+                    width={0}
+                    sizes="100vw"
+                    className="w-full h-full"
+                />
+            </div>
             </div>
             <div className="flex flex-row w-full">
                 <div className="w-full pr-2">

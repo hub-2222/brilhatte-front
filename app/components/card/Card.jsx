@@ -18,11 +18,15 @@ export default function Card (props) {
                         <div className={`${styles.scroll} max-h-28 md:max-h-44 overflow-y-auto`}>
                             {
                                 props.roupa?.pedrasVinculadas?.map(pedra => (
-                                    <tr className="text-sm border-b-1 w-full flex text-gray-600 hover:bg-gray-200">
-                                        <td className="w-full text-nowrap max-w-[33.33%]">{pedra.nome}</td>
-                                        <td className="w-full text-nowrap max-w-[33.33%] text-center">{pedra.tamanho}</td>
-                                        <td className="w-full text-nowrap max-w-[33.33%] text-right">{pedra.quantidade} un</td>
-                                    </tr>                               
+                                    <table className="w-full">
+                                        <tbody>
+                                            <tr className="text-sm border-b-1 w-full flex text-gray-600 hover:bg-gray-200">
+                                                <td className="w-full text-nowrap max-w-[33.33%]">{pedra.nome}</td>
+                                                <td className="w-full text-nowrap max-w-[33.33%] text-center">{pedra.tamanho}</td>
+                                                <td className="w-full text-nowrap max-w-[33.33%] text-right">{pedra.quantidade} un</td>
+                                            </tr>                               
+                                        </tbody>
+                                    </table>
                                 ))
                             }
                         </div>
