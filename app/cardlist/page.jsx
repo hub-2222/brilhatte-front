@@ -9,6 +9,7 @@ import Card from "@/app/components/card/Card";
 import styles from "./cardlist.module.css"
 import {useEffect, useState} from "react";
 import Link from "next/link";
+import {Pagination} from "@heroui/pagination";
 import { useEdgeStore } from "@/lib/edgestore";
 import { SingleImageDropzone } from "@/app/components/input/single-image-dropzone";
 import {
@@ -67,9 +68,9 @@ export default function Page(props) {
       }
     }
 
-   /*  useEffect(() => {
-      getCharactersList();
-    }, [page]); */
+    useEffect(() => {
+      console.log(props)
+    }, [page]);
 
     const [roupaSelected, setRoupaSelected] = useState(null)
 
@@ -654,7 +655,7 @@ export default function Page(props) {
         <main className="h-full">
             <section className=" flex-col items-center h-full">
                 <div className={`${styles.container}`}>
-                <Search placeholder="Digite o nome da peça que está buscando aqui."/>
+                    <Search placeholder="Digite o nome da peça que está buscando aqui."/>
                     <div className="flex flex-wrap justify-between items-center">
                         {
                             json2?.map(roupa => (
@@ -670,6 +671,9 @@ export default function Page(props) {
                                 height={40}
                                 width={40}
                             />
+                        </div>
+                        <div className="flex w-full justify-center p-4">
+                            <Pagination boundaries={3} className="p-0 m-0" variant={"faded"} showControls initialPage={1} total={10} />
                         </div>
                     </div>
                 </div>
@@ -748,73 +752,6 @@ export default function Page(props) {
                                     
                             />
                             <div className="flex-[1]"></div>
-                                {/* <div className="h-[6px] w-44 border rounded overflow-hidden">
-                                <div
-                                className="h-full bg-slate-600 transition-all duration-150"
-                                style={{
-                                    width: `${progress}%`,
-                                }}
-                                />
-                            </div> */}
-                            {/* <button className="p-2 bg-slate-500 m-2"
-                                    onClick={async () => {
-                                        try {
-                                            if (file) {
-                                            const res =
-                                            await edgestore.myPublicImages.upload({file,
-                                                input: { type: "post" },
-                                                onProgressChange: (progress) => {
-                                                setProgress(progress);
-                                                },});
-                                            // save your data here
-                                            setUrls({
-                                                url: res.url,
-                                                thumbnailUrl: res.thumbnailUrl,
-                                            });
-                                            }
-                                        } catch (error) {
-                                            // All errors are typed and you will get intellisense for them
-                                            if (error instanceof EdgeStoreApiClientError) {
-                                              // if it fails due to the `maxSize` set in the router config
-                                              if (error.data.code === 'FILE_TOO_LARGE') {
-                                                alert(
-                                                  `O arquivo é grande demais. Tamanho máximo é ${formatFileSize(
-                                                    error.data.details.maxFileSize,
-                                                  )}`,
-                                                );
-                                              }
-                                              // if it fails due to the `accept` set in the router config
-                                              if (error.data.code === 'MIME_TYPE_NOT_ALLOWED') {
-                                                alert(
-                                                  `Tipo de arquivo inválido. Tente usar: ${error.data.details.allowedMimeTypes.join(
-                                                    ', ',
-                                                  )}`,
-                                                );
-                                              }
-                                              // if it fails during the `beforeUpload` check
-                                              if (error.data.code === 'UPLOAD_NOT_ALLOWED') {
-                                                alert("Você não tem permissão para armazenar arquivos.");
-                                              }
-                                            } else if (error instanceof UploadAbortedError) {
-                                              // if the upload was canceled from an AbortController's signal
-                                              console.log('Upload abortado');
-                                            } else {
-                                              // unknown error
-                                              console.error(error);
-                                            }
-                                        }
-                                      }}
-                              >teste</button>
-                              {urls?.url && (
-                                    <Link href={urls.url} target="_blank">
-                                    URL
-                                    </Link>
-                                )}
-                                {urls?.thumbnailUrl && (
-                                    <Link href={urls.thumbnailUrl} target="_blank">
-                                    THUMBNAIL
-                                    </Link>
-                                )} */}
                         </div>
                     </div>
                     <div className="flex mt-2 justify-end border-t-2 border-[#445869]">
