@@ -662,7 +662,7 @@ export default function Page(props) {
                                 <Card roupa={roupa} del={del} edit={edit} selectRoupa={setRoupaSelected}/>
                             ))
                         }
-                        <div className="fixed bottom-6 right-8 cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400 p-4 rounded-full drop-shadow-xl" 
+                        <div className="fixed bottom-16 right-8 md:right-16 cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400 p-4 rounded-full drop-shadow-xl" 
                              onClick={()=>{setIsModalOpen(true)}}>
                             <Image
                                 src="/img/plus.png"
@@ -673,7 +673,7 @@ export default function Page(props) {
                             />
                         </div>
                         <div className="flex w-full justify-center p-4">
-                            <Pagination boundaries={3} className="p-0 m-0" variant={"faded"} showControls initialPage={1} total={10} />
+                            <Pagination className="p-0 m-0" variant={"faded"} showControls initialPage={1} total={5} />
                         </div>
                     </div>
                 </div>

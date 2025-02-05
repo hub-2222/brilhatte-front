@@ -15,7 +15,7 @@ export default function Card (props) {
                 <div className="flex flex-col justify-between h-full">
                     <div className="flex flex-col h-full p-3 justify-between">
                         <h1 className="md:text-base drop-shadow text-small text-gray-700"><b>{props.roupa?.nome}</b></h1>
-                        <div className={`${styles.scroll} max-h-28 md:max-h-44 overflow-y-auto`}>
+                        <div className={`${styles.scroll} max-h-20 md:max-h-44 overflow-y-auto`}>
                             {
                                 props.roupa?.pedrasVinculadas?.map(pedra => (
                                     <table className="w-full">
