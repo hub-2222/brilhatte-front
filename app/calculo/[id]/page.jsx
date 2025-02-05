@@ -5,9 +5,10 @@ import HotfixInput from "@/app/components/input/HotfixInput";
 import {useState} from "react";
 import {api} from "@/app/api/api";
 import styles from "./calculo.module.css"
+import { useRouter } from 'next/navigation'
 
 export default function Page(props) {
-
+    const router = useRouter()
     const [nextId32, setNextId32] = useState(0)
     const [nextId24, setNextId24] = useState(0)
     const [maoObra, setMaoObra] = useState(0)
@@ -289,8 +290,17 @@ export default function Page(props) {
     return (
         
         <div className="flex flex-col justify-between gap-4 items-center mx-2 md:mx-10">
-            <div className="p-10 text-center">
-                <span className="text-2xl md:text-4xl">Calculadora de Preço</span>
+            <div className="md:p-10 p-2 text-center flex w-full">
+                <div className="flex justify-start align-middle min-w-[33.33%]">
+                    <button onClick={() => router.push(`/cardlist/`)} className="flex h-fit rounded justify-center align-middle gap-2 p-2 bg-white text-[#24A0ED] drop-shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#24A0ED"><path d="m297.92-442.12 235.7 235.69L480-153.3 153.3-480 480-806.86l53.62 53.29-235.7 235.69h508.94v75.76H297.92Z"/></svg>
+                        Voltar
+                    </button>
+                </div>
+                <div className="flex justify-center w-full min-w-[33.33%]">
+                    <span className="text-2xl md:text-4xl">Calculadora de Preço</span>
+                </div>
+                <div className="min-w-[33.33%]"></div>
             </div>
             <div id={`card-${json2[0].id}`} className={`w-full ${styles.card}`}>
             <div className="flex flex-col w-full justify-between">
@@ -381,7 +391,7 @@ export default function Page(props) {
                     </div>
                 </div>
             </div>
-            <div className="w-full">
+            <div className="w-full p-2">
                 <div>
                     <div className="flex border rounded-lg drop-shadow mt-6 mb-6">
                         <button onClick={calcular}
