@@ -6,8 +6,8 @@ export default function HotfixInput(props) {
     const [comprimento, setComprimento] = useState(0)
 
     useEffect(() => {
-        setLargura(props.hotfix.largura)
-        setComprimento(props.hotfix.comprimento)
+        setLargura(props.hotfix?.larguraUtilizada)
+        setComprimento(props.hotfix?.comprimentoUtilizado)
     }, []);
 
     function changeLargura(hotfix, value) {
@@ -28,22 +28,22 @@ export default function HotfixInput(props) {
                            label="Largura (cm)"
                            placeholder="0"
                            onChange={(e) => changeLargura(props.hotfix, e.target.value)}
-                           defaultValue={largura}
+                           value={largura}
                            className="drop-shadow"></Input>
                 </div>
                 <div className="w-full">
                     <Input id="hotfix-32-l"
-                            label="Comprimento (cm)"
-                            placeholder="0"
-                            onChange={(e) => changeComprimento(props.hotfix, e.target.value)}
-                            defaultValue={comprimento}
-                            className="drop-shadow"></Input>
+                           label="Comprimento (cm)"
+                           placeholder="0"
+                           onChange={(e) => changeComprimento(props.hotfix, e.target.value)}
+                           value={comprimento}
+                           className="drop-shadow"></Input>
                 </div>
                 {
                     props.deletable ?
                     <div className="w-fit h-full">
                         <button
-                            onClick={(e) => props.onClickDelete(props)}
+                            onClick={(e) => props.onClickDelete(props.hotfix)}
                             className="ml-2 w-10 h-10 flex justify-center align-middle hover:bg-red-500 active:bg-red-600 items-center rounded-lg bg-red-400 text-white">
                             ×
                         </button>

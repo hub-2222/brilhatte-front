@@ -21,6 +21,9 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/calculo/[id]/page.jsx", "app/calculo/[id]/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts",
+    "app/calculo/[idRoupa]/page.jsx",
+    "app/calculo/[idRoupa]/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }

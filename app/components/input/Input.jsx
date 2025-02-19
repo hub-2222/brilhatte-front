@@ -1,7 +1,7 @@
 import {useState} from "react";
 
 export default function Input(props) {
-    const [valor, setValor] = useState("")
+    const [valor, setValor] = useState(props.value || "")
 
     function handleChange(e) {
         setValor(e.target.value);
