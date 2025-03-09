@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment=".env ignore">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="ajustando variavel ambiente api">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/api.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/api.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +119,7 @@
       <workItem from="1738711953588" duration="15139000" />
       <workItem from="1738769267978" duration="3505000" />
       <workItem from="1739928629622" duration="1873000" />
-      <workItem from="1741549054833" duration="3061000" />
+      <workItem from="1741549054833" duration="4620000" />
     </task>
     <task id="LOCAL-00001" summary="#Initial commit">
       <option name="closed" value="true" />
@@ -277,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741561418582</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="ajustando variavel ambiente api">
+      <option name="closed" value="true" />
+      <created>1741561760854</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1741561760854</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +320,8 @@
     <MESSAGE value="Ajustando tudo" />
     <MESSAGE value="rebuild" />
     <MESSAGE value=".env ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value=".env ignore" />
+    <MESSAGE value="ajustando variavel ambiente api" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustando variavel ambiente api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
