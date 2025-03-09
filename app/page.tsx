@@ -40,7 +40,7 @@ export default function Home() {
                 <div className={`${styles.bgInputs}`}>
                     <h1 className="font-bold text-xl text-gray-500 mb-6">Entre com seu usuário</h1>
                     <div className="flex flex-col gap-4">
-                        <Input align="text-left" onChange={(e) => setUsername(e.target.value)} placeholder="Digite seu nome de usuário aqui"></Input>
+                        <Input onChange={(e) => setUsername(e.target.value)} placeholder="Digite seu nome de usuário aqui"></Input>
                         <Input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Digite a senha aqui"></Input>
                         <Button isLoading={isLoading} onPress={login} className="font-medium text-white p-2.5 rounded-lg hover:bg-[#445869] active:bg-[#3d4f5e] bg-[#566878]">
                             {
