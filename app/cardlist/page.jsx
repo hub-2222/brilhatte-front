@@ -339,7 +339,7 @@ export default function Page(props) {
                                label="Digite o nome do modelo"></Input>
                         <div className="flex gap-2 w-full items-stretch">
                             <div className="w-full">
-                                <Input label="Largura Frente"
+                                <Input label="Largura"
                                        placeholder="0,00"
                                        className="drop-shadow"
                                        onChange={handleChangeLarguraFrenteCad}
@@ -348,18 +348,7 @@ export default function Page(props) {
                                        value={larguraFrenteCad}></Input>
                             </div>
                             <div className="w-full">
-                                <Input label="Largura Costa"
-                                       placeholder="0,00"
-                                       className="drop-shadow"
-                                       onChange={handleChangeLarguraCostasCad}
-                                       type="number"
-                                       align="text-right"
-                                       value={larguraCostasCad}></Input>
-                            </div>
-                        </div>
-                        <div className="flex gap-2 w-full">
-                            <div className="w-full">
-                                <Input label="Comprimento Frente"
+                                <Input label="Comprimento"
                                        placeholder="0,00"
                                        onChange={handleChangeComprimentoFrenteCad}
                                        type="number"
@@ -367,19 +356,9 @@ export default function Page(props) {
                                        align="text-right"
                                        value={comprimentoFrenteCad}></Input>
                             </div>
-
-                            <div className="w-full">
-                                <Input label="Comprimento Costas"
-                                       placeholder="0,00"
-                                       onChange={handleChangeComprimentoCostasCad}
-                                       type="number"
-                                       className="drop-shadow"
-                                       align="text-right"
-                                       value={comprimentoCostasCad}></Input>
-                            </div>
                         </div>
                         <div className="">
-                            <span className="mb-2 text-lg font-medium text-gray-700">Joias:</span>
+                            <span className="mb-2 text-lg font-medium text-gray-700">Tipos de pedra:</span>
                             <div className="flex flex-col gap-2">
                                 {
                                     pedrasCad.sort((a, b) => a.key - b.key).map((item, index) => (
