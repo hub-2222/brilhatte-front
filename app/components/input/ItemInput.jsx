@@ -28,7 +28,7 @@ export default function ItemInput(props) {
     }
 
     useEffect(() => {
-        list.setFilterText(props.item.nome + ", " + props.item.tamanho)
+        list.setFilterText(getNomePedra())
     }, []);
 
     let list = useAsyncList({
@@ -46,6 +46,14 @@ export default function ItemInput(props) {
             };
         },
     });
+
+    function getNomePedra() {
+        if (props.item.nome === undefined) {
+            return null;
+        }
+
+        return props.item.nome + ", " + props.item.tamanho
+    }
 
     return (
         <div>

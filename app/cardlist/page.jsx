@@ -214,15 +214,22 @@ export default function Page(props) {
         if (roupaCad != null) {
             await api.put(`/roupas/${roupaCad.id}`, roupa).then(() => {
                 getCharactersList();
+
+                setIsModalOpen(false);
+                limparCadastro();
+            }, (error) => {
+
             });
         } else {
             await api.post('/roupas', roupa).then(() => {
                 getCharactersList();
+
+                setIsModalOpen(false);
+                limparCadastro();
+            },(error) => {
+
             });
         }
-
-        setIsModalOpen(false);
-        limparCadastro();
     }
 
     function limparCadastro() {
@@ -375,7 +382,6 @@ export default function Page(props) {
                                                        value={item}
                                                        onChangePedra={(value) => handleChangePedra(value, item.key)}
                                                        onChangeQuantidade={(value) => pedrasCad[index].quantidade = value}
-                                                       onClickAdd={addPedra}
                                                        deletable={item.deletable}
                                                        onClickDelete={removePedra}>
                                             </ItemInput>
