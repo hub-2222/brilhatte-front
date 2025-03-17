@@ -18,10 +18,10 @@ export default function Page({params}) {
     const [maoObra, setMaoObra] = useState(0);
     const [precoCusto, setPrecoCusto] = useState(0);
     const [porcentagemLucro, setPorcentagemLucro] = useState(0);
-    const [isLoadingData, setIsLoadingData] = useState(true)
-    const [isLoadingCalculo, setIsLoadingCalculo] = useState(false)
-    const [hotfixes24, setHotfix24] = useState([])
-    const [hotfixes32, setHotfix32] = useState([])
+    const [isLoadingData, setIsLoadingData] = useState(true);
+    const [isLoadingCalculo, setIsLoadingCalculo] = useState(false);
+    const [hotfixes24, setHotfix24] = useState([]);
+    const [hotfixes32, setHotfix32] = useState([]);
 
 
 

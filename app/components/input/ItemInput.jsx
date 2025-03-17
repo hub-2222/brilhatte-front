@@ -17,7 +17,11 @@ export default function ItemInput(props) {
     }
 
     function handleChangePedra(keyPedra) {
-        let pedra = items.filter((item) => item.id == keyPedra)[0];
+        if (!keyPedra) {
+            return;
+        }
+
+        let pedra = items.filter((item) => item.id == keyPedra);
         props.onChangePedra(pedra)
     }
 
@@ -25,6 +29,16 @@ export default function ItemInput(props) {
         if (isOpen) {
             list.setFilterText(e);
         }
+    }
+
+    function handleChangeOpen(newValue) {
+        if(newValue) {
+            list.setFilterText(props.item.nome)
+        } else {
+            list.setFilterText(getNomePedra())
+        }
+
+        setIsOpen(newValue)
     }
 
     useEffect(() => {
@@ -67,7 +81,7 @@ export default function ItemInput(props) {
                                 items={list.items}
                                 label="Selecione uma pedra"
                                 onSelectionChange={handleChangePedra}
-                                onOpenChange={setIsOpen}
+                                onOpenChange={handleChangeOpen}
                                 onInputChange={handleFilterChange}
                             >
                                 {(item) => (
