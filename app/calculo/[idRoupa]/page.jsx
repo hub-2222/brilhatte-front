@@ -31,8 +31,8 @@ export default function Page({params}) {
                 id: idRoupa
             },
             listHotfix: montarArrayHotfix(),
-            maoObra: maoObra,
-            porcentagemLucro: porcentagemLucro
+            maoObra: maoObra ? maoObra : 0,
+            porcentagemLucro: porcentagemLucro ? porcentagemLucro : 0
         }
         setIsLoadingCalculo(true);
 
