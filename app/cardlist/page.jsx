@@ -103,14 +103,6 @@ export default function Page(props) {
             return p.key !== item.key;
         })
 
-        if (newList.length === 0) {
-            newList = [{
-                id: null,
-                deletable: false,
-                key: nextIdPedraCad
-            }]
-            setNextIdPedraCad(nextIdPedraCad + 1)
-        }
         setPedrasCad(newList)
 
     }
@@ -170,7 +162,6 @@ export default function Page(props) {
     }
 
     function handleChangePedra(pedra, key) {
-        console.log(key)
         const updatedPedras = pedrasCad.map((item) => {
             if (item.key === key) {
                 pedra.key = key;

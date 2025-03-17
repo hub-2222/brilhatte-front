@@ -17,7 +17,6 @@ export default function ItemInput(props) {
     }
 
     function handleChangePedra(keyPedra) {
-        console.log(keyPedra)
         if (!keyPedra) {
             return;
         }
@@ -27,7 +26,6 @@ export default function ItemInput(props) {
     }
 
     function handleFilterChange(e) {
-        console.log(e)
         if (isOpen) {
             list.setFilterText(e);
         }
