@@ -21,7 +21,7 @@ export default function ItemInput(props) {
             return;
         }
 
-        let pedra = items.filter((item) => item.id == keyPedra);
+        let pedra = items.filter((item) => item.id == keyPedra)[0];
         props.onChangePedra(pedra)
     }
 
