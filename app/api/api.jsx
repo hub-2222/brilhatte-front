@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {redirect} from "next/navigation";
+import {addToast} from "@heroui/react";
 
 export const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -35,6 +36,12 @@ api.interceptors.response.use(
             redirect('')
         }
 
-        return Promise.reject(error);
+        if (error.response?.status === 500) {
+            alert('Erro interno do servidor')
+        }
+
+        if (error.response?.status === 400) {
+            alert(error.response.data)
+        }
     }
 );

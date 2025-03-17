@@ -1,120 +1,51 @@
 import {useEffect, useState} from "react";
 import {Input} from "@heroui/input";
 import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
-import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import React from "react";
 import {api} from "../../api/api";
+import {useAsyncList} from "@react-stately/data";
 
-export function useJoiaList({fetchDelay = 0} = {}) {
-
-    const [items, setItems] = React.useState([]);
-    const [hasMore, setHasMore] = React.useState(true);
-    const [isLoading, setIsLoading] = React.useState(false);
-    const [page, setPage] = React.useState(0);
-    const [filter, setFilter] = React.useState("");
-    const size = 10;
-
-    const loadJoias = async (currentPage, nome) => {
-        const controller = new AbortController();
-        const {signal} = controller;
-
-        try {
-            setIsLoading(true);
-
-            const res = await api
-                .get(`/pedras`, { params: {page: currentPage, size, nome}, signal }, )
-                .then((res) => {
-                    setIsLoading(false);
-                    return res;
-                })
-
-            let results = res.data.content;
-
-            setHasMore(!res.data.last);
-            let newItems = results.filter((item) => !items.some((i) => i.id === item.id));
-
-            setItems((prevItems) => [...prevItems, ...newItems]);
-
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-    const onLoadMore = (nomePedra) => {
-        setPage(page + 1);
-
-        loadJoias(page, nomePedra);
-    };
-
-    const reset = () => {
-        setItems([]);
-        setPage(0);
-    }
-
-    return {
-        items,
-        hasMore,
-        isLoading,
-        onLoadMore,
-        reset
-    };
-}
 
 export default function ItemInput(props) {
-    const [isOpen, setIsOpen] = React.useState(false);
-    const {items, hasMore, isLoading, onLoadMore, reset} = useJoiaList({fetchDelay: 1500});
-    const [filter, setFilter] = useState("")
     const [quantidade, setQuantidade] = useState(props.value.quantidade)
-
-    const [, scrollerRef] = useInfiniteScroll({
-        hasMore,
-        isEnabled: isOpen,
-        shouldUseLoader: true,
-        onLoadMore,
-    });
-
-    const [largura, setLargura] = useState(0)
-    const [comprimento, setComprimento] = useState(0)
-
-    useEffect(() => {
-        setLargura(props.item.largura)
-        setComprimento(props.item.comprimento)
-    }, []);
-
-    function handleChangePedra(keyPedra) {
-        if (!isOpen) {
-            return;
-        }
-        let pedra = items.filter((item) => item.id == keyPedra)[0];
-        props.onChangePedra(pedra)
-    }
+    const [items, setItems] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
 
     function handleChangeQuantidade(e) {
         setQuantidade(e.target.value)
         props.onChangeQuantidade(e.target.value)
     }
 
-    function handleOpenChange(open) {
-        if(open) {
-            onLoadMore();
-        }
-        setIsOpen(open);
+    function handleChangePedra(keyPedra) {
+        let pedra = items.filter((item) => item.id == keyPedra)[0];
+        props.onChangePedra(pedra)
     }
 
-    function handleFilterChange(value) {
-        if (filter !== value) {
-            reset();
-            setFilter(value);
+    function handleFilterChange(e) {
+        if (isOpen) {
+            list.setFilterText(e);
         }
     }
 
     useEffect(() => {
-        if (!isOpen) {
-            return;
-        }
-        onLoadMore(filter)
-    }, [filter])
+        list.setFilterText(props.item.nome + ", " + props.item.tamanho)
+    }, []);
+
+    let list = useAsyncList({
+        async load({signal, filterText}) {
+            let res = await api
+                .get(`/pedras`, { params: {page: 0, size: 50, nome: filterText}, signal }, )
+                .then((res) => {
+                    return res;
+                })
+            let results = res.data.content;
+            setItems(results)
+
+            return {
+                items: results
+            };
+        },
+    });
 
     return (
         <div>
@@ -122,18 +53,18 @@ export default function ItemInput(props) {
                 <div className="flex w-full gap-2 pr-2">
                     <div className={`w-full drop-shadow`}>
                         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                            <Autocomplete defaultItems={items}
-                                          inputValue={props.value.nome}
-                                          allowsCustomValue
-                                          isLoading={isLoading}
-                                          scrollRef={scrollerRef}
-                                          label="Selecione"
-                                          onInputChange={handleFilterChange}
-                                          onOpenChange={handleOpenChange}
-                                          onSelectionChange={handleChangePedra}>
+                            <Autocomplete
+                                inputValue={list.filterText}
+                                isLoading={list.isLoading}
+                                items={list.items}
+                                label="Selecione uma pedra"
+                                onSelectionChange={handleChangePedra}
+                                onOpenChange={setIsOpen}
+                                onInputChange={handleFilterChange}
+                            >
                                 {(item) => (
                                     <AutocompleteItem key={item.id} className="capitalize">
-                                        {item.nome}, {item.tamanho}
+                                        {item.nome + ", " + item.tamanho}
                                     </AutocompleteItem>
                                 )}
                             </Autocomplete>
