@@ -331,7 +331,7 @@ export default function Page(props) {
                                         />
                                     </div>
                                     <div className="flex justify-center items-center h-full">
-                                        <span className="text-lg text-gray-500">Nenhuma peça encontrado</span>
+                                        <span className="text-lg text-gray-500">Nenhuma peça encontrada</span>
                                     </div>
                                 </div>
                             )
