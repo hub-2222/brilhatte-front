@@ -170,6 +170,7 @@ export default function Page(props) {
     }
 
     function handleChangePedra(pedra, key) {
+        console.log(key)
         const updatedPedras = pedrasCad.map((item) => {
             if (item.key === key) {
                 pedra.key = key;
