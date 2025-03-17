@@ -49,14 +49,21 @@ export default function Card (props) {
                 </div>
             </div>
             <div className="w-3/5">
-                <Image
-                    src={props.roupa?.imageUrl || "/img/default.jpg"}
-                    alt="Logo"
-                    height={0}
-                    width={0}
-                    sizes="100vw"
-                    className="w-full h-full"
-                />
+                { 
+                    props.roupa?.imageUrl
+                    ?
+                    <Image
+                        unoptimized={true}
+                        src={props.roupa?.imageUrl}
+                        alt="Logo"
+                        height={0}
+                        width={0}
+                        sizes="100vw"
+                        className="w-full h-full"
+                    />
+                    :
+                    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#999999"><path d="M226.67-813.33v190.66-190.66 666.66-10.83 10.83-666.66Zm0 733.33q-27 0-46.84-19.83Q160-119.67 160-146.67v-666.66q0-27 19.83-46.84Q199.67-880 226.67-880H574l226 226v209.33q-15.67-6.33-32.33-9.83-16.67-3.5-34.34-4.83v-163.34H540.67v-190.66h-314v666.66H522q9.33 19 21.33 35.67 12 16.67 27.34 31h-344ZM636-109.33 589.33-156l84-84-84-84L636-370.67l84 84 84-84L850.67-324l-83 84 83 84L804-109.33l-84-83-84 83Z"/></svg>
+                }
             </div>
         </div>
     )
