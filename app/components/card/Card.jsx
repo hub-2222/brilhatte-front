@@ -10,7 +10,7 @@ export default function Card (props) {
     return (
         <div id={`card-${props.roupa?.id}`} className={`w-full ${styles.card}`}>
 
-            <div className="flex flex-col w-full justify-between">
+            <div className="flex flex-col w-full justify-between border-r-1">
                 <div className="flex flex-col justify-between h-full">
                     <div className="flex flex-col h-full p-3 justify-between">
                         <h1 className="md:text-base drop-shadow text-small text-gray-700"><b>{props.roupa?.nome}</b></h1>
@@ -30,11 +30,9 @@ export default function Card (props) {
                             }
                         </div>
                     </div>
-                    <div className="flex mt-3 text-xs text-gray-600 text-nowrap w-full justify-between">
-                        <p className="ml-3">Frente: {props.roupa?.comprimentoFrente} x {props.roupa?.larguraFrente}cm</p>
-                        <p className="mr-3">Costas: {props.roupa?.comprimentoCostas} x {props.roupa?.larguraCostas}cm</p>
-                    </div>
                 </div>
+
+                <div className="p-2"></div>
 
                 <div className="flex w-full justify-between items-end border-t-1">
                     <div  onClick={(e) => props.del(e, props.roupa)} className={`border-r-1 ${styles.btnDel}`}>
