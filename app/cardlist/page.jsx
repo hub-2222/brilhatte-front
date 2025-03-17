@@ -170,6 +170,7 @@ export default function Page(props) {
     }
 
     function handleChangePedra(pedra, key) {
+        console.log(key)
         const updatedPedras = pedrasCad.map((item) => {
             if (item.key === key) {
                 pedra.key = key;
@@ -330,7 +331,7 @@ export default function Page(props) {
                                         />
                                     </div>
                                     <div className="flex justify-center items-center h-full">
-                                        <span className="text-lg text-gray-500">Nenhuma peça encontrado</span>
+                                        <span className="text-lg text-gray-500">Nenhuma peça encontrada</span>
                                     </div>
                                 </div>
                             )

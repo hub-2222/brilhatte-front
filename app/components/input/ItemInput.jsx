@@ -17,15 +17,17 @@ export default function ItemInput(props) {
     }
 
     function handleChangePedra(keyPedra) {
+        console.log(keyPedra)
         if (!keyPedra) {
             return;
         }
 
-        let pedra = items.filter((item) => item.id == keyPedra);
+        let pedra = items.filter((item) => item.id == keyPedra)[0];
         props.onChangePedra(pedra)
     }
 
     function handleFilterChange(e) {
+        console.log(e)
         if (isOpen) {
             list.setFilterText(e);
         }

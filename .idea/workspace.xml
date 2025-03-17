@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="Ajustes lib">
+    <list default="true" id="0f7da4c3-51f1-4d55-875e-ab94843a2d25" name="Changes" comment="Ajuste de bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/calculo/[idRoupa]/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculo/[idRoupa]/page.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/cardlist/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cardlist/page.jsx" afterDir="false" />
@@ -320,7 +320,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742185020696</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Ajuste de bugs">
+      <option name="closed" value="true" />
+      <created>1742189316314</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1742189316314</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Ajuste de bugs">
+      <option name="closed" value="true" />
+      <created>1742189979419</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1742189979419</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +407,19 @@
     <MESSAGE value=".env ignore" />
     <MESSAGE value="ajustando variavel ambiente api" />
     <MESSAGE value="Ajustes lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes lib" />
+    <MESSAGE value="Ajuste de bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajuste de bugs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/components/input/ItemInput.jsx</url>
+          <line>66</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
