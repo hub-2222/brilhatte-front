@@ -316,7 +316,7 @@ export default function Page(props) {
                                         />
                                     </div>
                                     <div className="flex justify-center items-center h-full">
-                                        <span className="text-lg text-gray-500">Nenhum modelo encontrado</span>
+                                        <span className="text-lg text-gray-500">Nenhuma peça encontrado</span>
                                     </div>
                                 </div>
                             )
@@ -324,7 +324,7 @@ export default function Page(props) {
                 </div>
             </section>
             <Modal
-                title="Cadastro de Modelo"
+                title="Cadastro de Peça"
                 isOpen={isModalOpen}
                 widht="60%"
                 full={true}
@@ -336,10 +336,10 @@ export default function Page(props) {
                         <Input className="drop-shadow"
                                value={nomeCad}
                                onChange={handleChangeNomeCad}
-                               label="Digite o nome do modelo"></Input>
+                               label="Digite o nome da peça"></Input>
                         <div className="flex gap-2 w-full items-stretch">
                             <div className="w-full">
-                                <Input label="Largura Frente"
+                                <Input label="Largura"
                                        placeholder="0,00"
                                        className="drop-shadow"
                                        onChange={handleChangeLarguraFrenteCad}
@@ -348,18 +348,7 @@ export default function Page(props) {
                                        value={larguraFrenteCad}></Input>
                             </div>
                             <div className="w-full">
-                                <Input label="Largura Costa"
-                                       placeholder="0,00"
-                                       className="drop-shadow"
-                                       onChange={handleChangeLarguraCostasCad}
-                                       type="number"
-                                       align="text-right"
-                                       value={larguraCostasCad}></Input>
-                            </div>
-                        </div>
-                        <div className="flex gap-2 w-full">
-                            <div className="w-full">
-                                <Input label="Comprimento Frente"
+                                <Input label="Comprimento"
                                        placeholder="0,00"
                                        onChange={handleChangeComprimentoFrenteCad}
                                        type="number"
@@ -367,19 +356,17 @@ export default function Page(props) {
                                        align="text-right"
                                        value={comprimentoFrenteCad}></Input>
                             </div>
-
-                            <div className="w-full">
-                                <Input label="Comprimento Costas"
-                                       placeholder="0,00"
-                                       onChange={handleChangeComprimentoCostasCad}
-                                       type="number"
-                                       className="drop-shadow"
-                                       align="text-right"
-                                       value={comprimentoCostasCad}></Input>
-                            </div>
                         </div>
                         <div className="">
-                            <span className="mb-2 text-lg font-medium text-gray-700">Joias:</span>
+                            <div className="flex flex-col gap-2 mb-2">
+
+                                <span className="mb-2 text-lg font-medium text-gray-700">Tipos de pedra:</span>
+                                <button
+                                    onClick={addPedra}
+                                    className="p-2 w-auto justify-center drop-shadow align-middle hover:bg-blue-500 active:bg-blue-600 items-center rounded bg-blue-400 text-white">
+                                    + Adicionar tipo de pedra
+                                </button>
+                            </div>
                             <div className="flex flex-col gap-2">
                                 {
                                     pedrasCad.sort((a, b) => a.key - b.key).map((item, index) => (
@@ -396,6 +383,7 @@ export default function Page(props) {
                                     ))
                                 }
                             </div>
+                            
                         </div>
                         <div className="flex md:flex-row flex-col mt-5 md:items-start items-center">
                                 <span
@@ -430,7 +418,7 @@ export default function Page(props) {
                     setIsModalDelOpen(false)
                 }
                 }>
-                <span className="text-xl text-gray-500">Você tem certeza que deseja excluir este modelo?</span>
+                <span className="text-xl text-gray-500">Você tem certeza que deseja excluir esta peça?</span>
                 <div className="flex mt-2 justify-end gap-2">
                     <button onClick={deleteRoupa(roupaDelete?.id)}
                             className="md:w-1/5 w-1/4 text-white mt-4 px-4 py-2 rounded cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400">Sim

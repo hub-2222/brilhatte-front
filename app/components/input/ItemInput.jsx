@@ -80,24 +80,13 @@ export default function ItemInput(props) {
                                className="drop-shadow"></Input>
                     </div>
                 </div>
-                {
-                    props.deletable ?
-                        <div className="w-fit h-full">
-                            <button
-                                onClick={(e) => props.onClickDelete(props.item)}
-                                className="ml-2 w-[42px] h-[42px] flex justify-center align-middle hover:bg-red-500 active:bg-red-600 items-center rounded-lg bg-red-400 text-white">
-                                ×
-                            </button>
-                        </div>
-                        :
-                        <div className="w-fit h-full">
-                            <button
-                                onClick={props.onClickAdd}
-                                className="ml-2 w-[42px] h-[42px] flex justify-center align-middle hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center rounded-lg bg-pastelgreen-400 text-white">
-                                +
-                            </button>
-                        </div>
-                }
+                <div className="w-fit h-full">
+                    <button
+                        onClick={(e) => props.onClickDelete(props.item)}
+                        className="ml-2 w-[42px] h-[42px] flex justify-center align-middle hover:bg-red-500 active:bg-red-600 items-center rounded-lg bg-red-400 text-white">
+                        ×
+                    </button>
+            </div>
             </div>
         </div>
     )

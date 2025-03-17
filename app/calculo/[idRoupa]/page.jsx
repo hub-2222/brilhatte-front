@@ -7,9 +7,10 @@ import {api} from "@/app/api/api";
 import styles from "./calculo.module.css"
 import {InfinitySpin} from "react-loader-spinner";
 import {Button} from "@heroui/react";
+import { useRouter } from 'next/navigation'
 
 export default function Page({params}) {
-
+    const router = useRouter()
     const [idRoupa, setIdRoupa] = useState(params?.idRoupa)
     const [roupa, setRoupa] = useState();
     const [nextId32, setNextId32] = useState(0);
@@ -209,8 +210,18 @@ export default function Page({params}) {
         </div>
     ) : (
         <div className="flex flex-col justify-between gap-4 items-center mx-2 md:mx-10">
-            <div className="p-10 text-center">
-                <span className="text-2xl md:text-4xl">Calculadora de Preço</span>
+            <div className="flex justify-between w-full">
+                <div className="w-[33.33%] content-center">
+                    
+                    <button onClick={() => router.push(`/cardlist`)} className="flex gap-2 drop-shadow p-2 bg-[#f4f4f5] rounded hover:drop-shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M360-240 120-480l240-240 56 56-144 144h488v-160h80v240H272l144 144-56 56Z"/></svg>
+                        Voltar
+                    </button>
+                </div>
+                <div className="w-[33.33%] py-10 text-center">
+                    <span className="text-2xl md:text-4xl">Calculadora de Preço</span>
+                </div>
+                <div className="w-[33.33%]"></div>
             </div>
             <div id={`card-${roupa?.id}`} className={`w-full ${styles.card}`}>
             <div className="flex flex-col w-full justify-between">
@@ -231,10 +242,6 @@ export default function Page({params}) {
                                     </table>
                                 ))
                             }
-                        </div>
-                        <div className="flex mt-3 text-sm text-gray-600 text-nowrap w-full justify-between">
-                            <p>Frente: {roupa?.comprimentoFrente} x {roupa?.larguraFrente}cm</p>
-                            <p>Costas: {roupa?.comprimentoCostas} x {roupa?.larguraCostas}cm</p>
                         </div>
                     </div>
                 </div>
