@@ -17,6 +17,7 @@ import {
     UploadAbortedError,
 } from '@edgestore/react/errors';
 import {InfinitySpin} from "react-loader-spinner";
+import {Button} from "@heroui/react";
 
 export default function Page(props) {
     const [roupaList, setRoupaList] = useState([]);
@@ -31,15 +32,16 @@ export default function Page(props) {
     const [isModalDelOpen, setIsModalDelOpen] = useState(false);
     const [roupaDelete, setRoupaDelete] = useState({});
     const [roupaCad, setRoupaCad] = useState();
-    const [nextIdPedraCad, setNextIdPedraCad] = useState(0)
-    const [larguraFrenteCad, setLarguraFrenteCad] = useState(0)
-    const [larguraCostasCad, setLarguraCostasCad] = useState(0)
-    const [comprimentoFrenteCad, setComprimentoFrenteCad] = useState(0)
-    const [comprimentoCostasCad, setComprimentoCostasCad] = useState(0)
-    const [nomeCad, setNomeCad] = useState("")
-    const [listLoading, setListLoading] = useState(false)
-    const [pedrasCad, setPedrasCad] = useState([])
-    const [imagemCad, setImagemCad] = useState()
+    const [nextIdPedraCad, setNextIdPedraCad] = useState(0);
+    const [larguraFrenteCad, setLarguraFrenteCad] = useState(0);
+    const [larguraCostasCad, setLarguraCostasCad] = useState(0);
+    const [comprimentoFrenteCad, setComprimentoFrenteCad] = useState(0);
+    const [comprimentoCostasCad, setComprimentoCostasCad] = useState(0);
+    const [nomeCad, setNomeCad] = useState("");
+    const [listLoading, setListLoading] = useState(false);
+    const [pedrasCad, setPedrasCad] = useState([]);
+    const [imagemCad, setImagemCad] = useState();
+    const [isLoadingSalvar, setIsLoadingSalvar] = useState(false);
 
     async function getCharactersList(nome) {
         if (listLoading) {
@@ -195,6 +197,7 @@ export default function Page(props) {
     }
 
     async function salvar() {
+        setIsLoadingSalvar(true);
         const roupa = {
             nome: nomeCad,
             larguraFrente: larguraFrenteCad,
@@ -206,10 +209,12 @@ export default function Page(props) {
             thumbnailUrl: urls?.thumbnailUrl
         }
 
-        await salvarArquivo().then((res) => {
-            roupa.imageUrl = res?.url;
-            roupa.thumbnailUrl = res?.thumbnailUrl;
-        });
+        if (file) {
+            await salvarArquivo().then((res) => {
+                roupa.imageUrl = res?.url;
+                roupa.thumbnailUrl = res?.thumbnailUrl;
+            });
+        }
 
         if (roupaCad != null) {
             await api.put(`/roupas/${roupaCad.id}`, roupa).then(() => {
@@ -230,6 +235,8 @@ export default function Page(props) {
 
             });
         }
+
+        setIsLoadingSalvar(false);
     }
 
     function limparCadastro() {
@@ -380,7 +387,9 @@ export default function Page(props) {
                                         <div key={item.key}>
                                             <ItemInput item={item}
                                                        value={item}
-                                                       onChangePedra={(value) => handleChangePedra(value, item.key)}
+                                                       onChangePedra={(value) => {
+                                                           handleChangePedra(value, item.key)
+                                                       }}
                                                        onChangeQuantidade={(value) => pedrasCad[index].quantidade = value}
                                                        deletable={item.deletable}
                                                        onClickDelete={removePedra}>
@@ -410,9 +419,11 @@ export default function Page(props) {
                         </div>
                     </div>
                     <div className="flex mt-2 justify-end border-t-2 border-[#445869]">
-                        <button onClick={salvar}
-                                className=" text-white mt-4 px-4 py-2 rounded cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400">Salvar
-                        </button>
+                        <Button onPress={salvar}
+                                isLoading={isLoadingSalvar}
+                                className=" text-white mt-4 px-4 py-2 rounded cursor-pointer hover:bg-pastelgreen-500 active:bg-pastelgreen-600 items-center bg-pastelgreen-400">
+                            {isLoadingSalvar ? "Salvando" : "Salvar"}
+                        </Button>
                     </div>
                 </div>
             </Modal>
